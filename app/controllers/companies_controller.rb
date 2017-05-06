@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -10,6 +11,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+
   end
 
   # GET /companies/new

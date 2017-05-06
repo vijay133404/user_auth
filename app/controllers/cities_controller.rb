@@ -1,4 +1,5 @@
 class CitiesController < ApplicationController
+
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
@@ -60,6 +61,10 @@ class CitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+def get_cities 
+  @cities= City.where(:city_id=>params[:country]) 
+end 
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +74,6 @@ class CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:city_name)
+      params.require(:city).permit(:city_name,:state_id)
     end
 end

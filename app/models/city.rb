@@ -1,5 +1,5 @@
 class City < ApplicationRecord
-	has_many  :compnies
+	has_many  :companies
 	belongs_to :state
 
 end

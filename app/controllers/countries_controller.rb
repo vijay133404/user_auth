@@ -10,6 +10,7 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+  
   end
 
   # GET /countries/new
@@ -69,6 +70,6 @@ class CountriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def country_params
-      params.require(:country).permit(:country_name)
+      params.require(:country).permit(:country_name,:code)
     end
 end

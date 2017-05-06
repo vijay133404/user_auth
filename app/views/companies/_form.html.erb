@@ -17,18 +17,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :country_id %>
-    <%= f.number_field :country_id %>
+    <%= f.label :CountryName %>
+       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},:prompt => 'Select Country') %>
   </div>
 
   <div class="field">
-    <%= f.label :state_id %>
-    <%= f.number_field :state_id %>
+    <%= f.label :StateName %>
+    <div class="statecontainer">
+    <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State') %>
+  </div>
   </div>
 
+
   <div class="field">
-    <%= f.label :city_id %>
-    <%= f.number_field :city_id %>
+    <%= f.label :CityName%>
+     <div class="citycontainer">
+    <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},:prompt => 'Select City') %>
+  </div>
   </div>
 
   <div class="field">
@@ -50,3 +55,29 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+$(document).ready(function() {
+$('#company_country_id').change(function(){
+  var country =  $('#company_country_id').val()
+  $.ajax({
+    url: "/get_states",
+    type: "GET",
+    data: {country: country},
+  });
+});
+});
+</script>
+<script>
+$(document).ready(function() {
+$('#company_city_id').change(function(){
+
+  var state =  $('#company_city_id').val()
+  $.ajax({
+    url: "/get_cities",
+    type: "GET",
+    data: {state: state},
+  });
+});
+});
+
+</script>

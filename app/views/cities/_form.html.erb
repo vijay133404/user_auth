@@ -15,6 +15,12 @@
     <%= f.label :city_name %>
     <%= f.text_field :city_name %>
   </div>
+   
+
+   <div class="field">
+    <%= f.label :StateName %>
+    <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State') %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

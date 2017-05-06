@@ -3,7 +3,14 @@
 <p>
   <strong>Country name:</strong>
   <%= @country.country_name %>
+
 </p>
+<p>
+  <strong>Country Code:</strong>
+  <%= @country.code %>
+  
+</p>
+
 
 <%= link_to 'Edit', edit_country_path(@country) %> |
 <%= link_to 'Back', countries_path %>

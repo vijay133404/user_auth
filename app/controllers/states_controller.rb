@@ -60,6 +60,10 @@ class StatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+def get_states
+ @states= State.where(:country_id=>params[:country]) 
+end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +73,6 @@ class StatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_params
-      params.require(:state).permit(:state_name)
+      params.require(:state).permit(:state_name,:country_id)
     end
 end

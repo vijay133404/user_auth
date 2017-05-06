@@ -1,4 +1,5 @@
 class Country < ApplicationRecord
-	has_many  :compnies
+	has_many  :companies
 	has_many  :states
+	
 end
