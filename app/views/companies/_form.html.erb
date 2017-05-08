@@ -59,6 +59,7 @@
 $(document).ready(function() {
 $('#company_country_id').change(function(){
   var country =  $('#company_country_id').val()
+  alert(0)
   $.ajax({
     url: "/get_states",
     type: "GET",
@@ -66,12 +67,15 @@ $('#company_country_id').change(function(){
   });
 });
 });
-</script>
-<script>
-$(document).ready(function() {
-$('#company_city_id').change(function(){
 
-  var state =  $('#company_city_id').val()
+
+
+
+$(document).ready(function() {
+$('#company_state_id').change(function(){
+
+  var state =  $('#company_state_id').val()
+  alert(1)
   $.ajax({
     url: "/get_cities",
     type: "GET",

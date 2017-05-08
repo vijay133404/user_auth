@@ -26,15 +26,23 @@
             <% end%>
             
              <li><%= link_to 'admin','admin' %></li>
-             <li><%= link_to 'projects','/projects' %></li> 
+             <li><%= link_to 'Company','/companies' %></li> 
 
-             <li><%= link_to 'Category','/categories' %></li> 
+             <li><%= link_to 'Country','/countries' %></li> 
+              <li><%= link_to 'State','/states' %></li>
+              <li><%= link_to 'City','/cities' %></li>
        
        
      </ul>
-
-
+ 
+ <% if user_signed_in?%>
+     <%=link_to "New Company",new_company_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New Country",new_country_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New State",new_state_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New City",new_city_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%end%>
     </div>
+    
  </nav>
 
 

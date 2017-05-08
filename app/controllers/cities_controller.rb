@@ -38,8 +38,7 @@ class CitiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cities/1
-  # PATCH/PUT /cities/1.json
+  
   def update
     respond_to do |format|
       if @city.update(city_params)
@@ -52,8 +51,7 @@ class CitiesController < ApplicationController
     end
   end
 
-  # DELETE /cities/1
-  # DELETE /cities/1.json
+
   def destroy
     @city.destroy
     respond_to do |format|
@@ -62,7 +60,7 @@ class CitiesController < ApplicationController
     end
   end
 def get_cities 
-  @cities= City.where(:city_id=>params[:country]) 
+  @cities= City.where(:state_id=>params[:state]) 
 end 
 
 
