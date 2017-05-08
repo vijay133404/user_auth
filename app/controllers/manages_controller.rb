@@ -73,4 +73,4 @@ class ManagesController < ApplicationController
     end
 end
 
-end
+

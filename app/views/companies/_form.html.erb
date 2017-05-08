@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name,:class=>"col-sm-1"  %>
+    <%= f.label :name,:class=>"col-sm-1 control-label"  %>
     <div class="col-sm-5">
     <%= f.text_field :name,:class=>"form-control" %>
   </div>
@@ -28,9 +28,9 @@
 
       
       <div class="form-group">
-        <div class="col-md-1">
-          <%= f.label :StateName,:class=>"col-sm-1"  %>
-          </div>
+      
+          <%= f.label :StateName,:class=>"col-sm-1 control-label"  %>
+          
          <div class="statecontainer">
            <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State',:class=>"form-control") %>
         </div>
@@ -38,7 +38,7 @@
 
 
     <div class="form-group">
-          <%= f.label :CityName ,:class=>"col-sm-1"%>
+          <%= f.label :CityName ,:class=>"col-sm-2"%>
           <div class="citycontainer">
                <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},:prompt => 'Select City',:class=>"form-control") %>
           </div>
@@ -53,7 +53,7 @@
 
   <div class="form-group">
     <%= f.label :start_date %>
-   <%= text_field_tag :start_date, params[:start_date] , :placeholder => "Start date", :id=>"start-date"%> 
+    <%= f.datetime_select :start_date %>
   </div>
 
  <div class="form-group">
@@ -74,7 +74,7 @@ $('#company_country_id').change(function(){
   var country =  $('#company_country_id').val()
   alert(1)
   $.ajax({
-    url: "/get_states",
+    url: "/states/get_states",
     type: "GET",
     data: {country: country},
   });
@@ -82,11 +82,6 @@ $('#company_country_id').change(function(){
 });
 </script>
 
-<script> 
-  $( function() { 
-    $("#start-date" ).datepicker({ dateFormat: 'dd-mm-yy' }); 
-   
-  } ); 
-  </script>
+
 
 

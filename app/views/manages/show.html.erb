@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong> Fist Name:</strong>
+  <%= @manage.first_name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @manage.last_name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+<%= @manage.company_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @manage.role_id %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @manage.start_date %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @manage.end_date %>
+</p>
+
+<p>
+  <strong>Mounth:</strong>
+  <%= @manage.monthly_charge %>
+</p>
+<p>
+  <strong>images:</strong>
+  <%= @manage.image_id %>
+</p>
+<p>
+  <strong>active:</strong>
+  <%= @manage.active %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

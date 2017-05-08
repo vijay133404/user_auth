@@ -1,0 +1,54 @@
+<%= form_for @manage :url manage_path  do |f| %>
+<div class="container">
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :Fistname,:class=>"col-sm-1 control-label"  %>
+    <div class="col-sm-5">
+    <%= f.text_field :fistname,:class=>"form-control" %>
+  </div>
+  </div>
+<br>
+
+  
+    <div class="form-group">
+      <%= f.label :LAstName %>
+       <%= f.text_field :lastname,:class=>"form-control" %>
+       </div>
+
+      
+      
+
+   
+
+  <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.datetime_select :start_date %>
+  </div>
+
+ <div class="form-group">
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+
+
+
+
+

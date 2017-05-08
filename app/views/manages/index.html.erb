@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Add User</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Postcode</th>
+      <th>Start date</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manages.each do |manage| %>
+      <tr>
+        <td><%= manage.first_name %></td>
+        <td><%= manage.last_name%></td>
+        <td><%= manage.email %></td>
+        <td><%= manage.start_date %></td>
+        <td><%= manage.active %></td>
+       
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path %>
