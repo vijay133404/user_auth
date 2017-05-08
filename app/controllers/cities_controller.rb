@@ -2,14 +2,11 @@ class CitiesController < ApplicationController
 
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
-  # GET /cities
-  # GET /cities.json
   def index
     @cities = City.all
   end
 
-  # GET /cities/1
-  # GET /cities/1.json
+ 
   def show
   end
 
@@ -38,6 +35,11 @@ class CitiesController < ApplicationController
     end
   end
 
+
+ def get_cities 
+   @cities= City.where(:state_id =>params[:state]) 
+
+   end 
   
   def update
     respond_to do |format|
@@ -59,9 +61,7 @@ class CitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-def get_cities 
-  @cities= City.where(:state_id=>params[:state]) 
-end 
+   
 
 
   private

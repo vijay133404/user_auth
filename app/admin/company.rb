@@ -2,7 +2,7 @@ ActiveAdmin.register Company do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
- permit_params :name,:country_id,:state_id,:city_id,:postcode,:start_date,:active ,:attributes, :on, :model
+ permit_params :CompanyName,:CountryName,:Statename,:Cityname,:Postcode,:Startdate,:Active , :attributes, :on, :model
 #
 # or
 #
