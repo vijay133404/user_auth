@@ -72,7 +72,7 @@
 $(document).ready(function() {
 $('#company_country_id').change(function(){
   var country =  $('#company_country_id').val()
-  alert(1)
+
   $.ajax({
     url: "/states/get_states",
     type: "GET",

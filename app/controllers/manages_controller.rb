@@ -15,7 +15,9 @@ class ManagesController < ApplicationController
   # GET /cities/new
   def new
     @manage = User.new
+   
   end
+
 
   # GET /cities/1/edit
   def edit
@@ -25,10 +27,13 @@ class ManagesController < ApplicationController
   # POST /cities.json
   def create
     @manage = User.new(manage_params)
-
+    @manage.password = 12345678
     respond_to do |format|
       if @manage.save
-        format.html { redirect_to @manage, notice: 'User was successfully created.' }
+        
+        Image.create(:image_name=> params[:user][:image_id],:imageable_id=> @manage.id,:imageable_type=> "User")
+        #@manage.images.create(:image_name=> params[:manage][:image_id] 
+        format.html { redirect_to manages_path, notice: 'User was successfully created.'}
         format.json { render :show, status: :created, location: @manage }
       else
         format.html { render :new }
@@ -69,7 +74,7 @@ class ManagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manage_params
-      params.require(:user).permit(:fistname,:lastname,:email,:company_id,:role_id,:start_date,:end_date,:monthly_charge,:image_id,:active)
+      params.require(:user).permit(:first_name,:last_name,:email,:company_id,:role_id,:start_date,:end_date,:monthly_charge,:image_id,:active,:notes,:company_id)
     end
 end
 

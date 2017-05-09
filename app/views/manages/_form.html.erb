@@ -1,54 +1,134 @@
-<%= form_for @manage :url manage_path  do |f| %>
-<div class="container">
-  <% if company.errors.any? %>
+<div class ="container">
+<%= form_for @manage, url: manages_path do |f| %>
+  <% if manage.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <h2><%= pluralize(manage.errors.count, "error") %> prohibited this company from being saved:</h2>
 
       <ul>
-      <% company.errors.full_messages.each do |message| %>
+      <% manage.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :Fistname,:class=>"col-sm-1 control-label"  %>
-    <div class="col-sm-5">
-    <%= f.text_field :fistname,:class=>"form-control" %>
-  </div>
-  </div>
-<br>
 
-  
-    <div class="form-group">
-      <%= f.label :LAstName %>
-       <%= f.text_field :lastname,:class=>"form-control" %>
-       </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label">First name</label>
+        <div class="col-sm-2  inputGroupContainer">
+          <%= f.text_field :first_name,:class=>"form-control" %>
+          </div>
+        </div>
 
-      
-      
+        <div class="form-group">
+        <label class="col-sm-2 control-label">Last name</label>
+        <div class="col-sm-3  inputGroupContainer">
+          <%= f.text_field :last_name,:class=>"form-control" %>
+        
+          </div>
+        </div>
+        
+        <div class="form-group">
+        <label class="col-sm-1 control-label">email</label>
+        <div class="col-sm-2  inputGroupContainer">
+          <%= f.email_field :email,:class=>"form-control" %>
+        
+          </div>
+        </div></br></br></br>
+        
 
-   
+        <div class="form-group">
+        <label class="col-sm-2 control-label">company</label>
+        <div class="col-sm-7  inputGroupContainer">
+         <%= f.select(:company_id, Company.all.collect {|u| [u.name, u.id]},{},:prompt => 'Select Company',:class=>"form-control") %>
+        
+          </div>
+        </div>
 
-  <div class="form-group">
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date %>
-  </div>
+            <div class="form-group">
+        <label class="col-sm-1 control-label">monthly</label>
+        <div class="col-sm-2  inputGroupContainer">
+          <%= f.text_field :monthly_charge,:class=>"form-control" %>
+        
+          </div>
+        </div></br></br>
 
- <div class="form-group">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-  </div>
 
-  <div class="actions">
+        <div class="form-group">
+        <label class="col-sm-2 control-label">Role</label>
+        <div class="col-sm-7  inputGroupContainer">
+         <%= f.select(:role_id, UserRole.all.collect {|u| [u.role_name, u.id]},{},:prompt => 'Select userRole',:class=>"form-control") %>
+         </div>
+          
+           </div></br></br>
+            <div class="container">
+             <div class="row">
+               <div class="form-group">
+               <%= f.label :start_date,:class=>"col-sm-2 control-label" %>
+                <div class="col-sm-2  inputGroupContainer">
+                <%= f.text_field :start_date, :id=>"datetimepicker1",:class=>"form-control" %>
+                <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+              </div>
+              </div>
+             <div class="form-group">
+               <%= f.label :end_date,:class=>"col-sm-2 control-label" %>
+               <div class="col-sm-2  inputGroupContainer">
+                <%= f.text_field :end_date, :id=>"datetimepicker2",:class=>"form-control" %>
+             </div> 
+             </div>
+            <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker();
+            });
+           </script>
+
+        </div>
+        </div>
+            
+       <div class="form-group">
+        <label class="col-sm-5 control-label">image</label>
+        <div class="col-sm-6  inputGroupContainer">
+          <%= f.file_field :image_id,:onchange => "showimagepreview(this)",:class=>"img_file"  %>
+              <img id="imgprvw" style="width: 167px; height: 94px; margin-top: 8px;" />
+            <%#= f.select(:image_id, Image.all.collect {|u| [u. real_name, u.id]},:prompt => 'Select Category',:class=>"form-control") %> 
+          </div>
+          </div></br></br>
+          
+
+
+           <div class="form-group">
+        <label class="col-sm-2 control-label">Notes</label>
+        <div class="col-sm-10  inputGroupContainer">
+          <%= f.cktext_area :notes,:class=>"form-control" %>
+         </div>
+        </div></br></br></br>
+        <div class="field">
+         <%= f.label :active %>
+           <%= f.check_box :active %>
+         </div>
+
+        <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+        
+  <% end %>
 </div>
-
-
+  <script>
+  function showimagepreview(input) {
+    if (input.files && input.files[0]) {
+    var filerdr = new FileReader();
+    filerdr.onload = function(e) {
+    $('#imgprvw').attr('src', e.target.result);
+    }
+    filerdr.readAsDataURL(input.files[0]);
+    }
+    $('.image_upload').submit();
+  }
+</script>
 
 
 

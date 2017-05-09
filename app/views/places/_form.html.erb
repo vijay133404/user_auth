@@ -1,3 +1,4 @@
+<div class ="container">
 <%= form_for(place) do |f| %>
   <% if place.errors.any? %>
     <div id="error_explanation">
@@ -11,17 +12,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :place_name %>
-    <%= f.text_field :place_name %>
+ <div class="form-group">
+    <%= f.label :place_name,:class=>"col-sm-2 control-label" %>
+    <div class="col-md-4  inputGroupContainer">
+    <%= f.text_field :place_name,:class=>"form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :company_id %>
-    <%= f.number_field :company_id %>
-  </div>
+</div>
 
-  <div class="actions">
+
+   <div class="form-group">
+    <%= f.label :Node_Name,:class=>"col-sm-1 control-label"  %>
+    <div class="col-md-4  inputGroupContainer">
+    <%= f.select(:node, Node.all.collect {|u| [u.node_name , u.id]},{},:prompt => 'Select Node',:class=>"form-control" ) %>
+  </div>
+  </div>
+  <br><br><br>
+
+    <div class="form-group">
+    <%= f.label :Company,:class=>"col-sm-2 control-label"  %>
+    <div class="col-md-8 inputGroupContainer">
+    <%= f.select(:company_id, Company.all.collect {|u| [u.name, u.id]},{},:prompt => 'Select Company',:class=>"form-control" ) %>
+  </div>
+<br><br><br>
+
+ <div class="form-group">
     <%= f.submit %>
   </div>
+ 
 <% end %>
+</div>
