@@ -69,6 +69,6 @@ class UserRegionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_region_params
-      params.require(:user_region).permit(:region_name)
+      params.require(:user_region).permit(:region_name,:region_id,:user_id,:right,:left)
     end
 end

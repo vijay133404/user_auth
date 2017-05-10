@@ -13,7 +13,7 @@
 
   
   <div class="form-group">
-        <label class="col-sm-2 control-label">UserName</label>
+        <label class="col-sm-1 control-label">UserName</label>
         <div class="col-md-3  inputGroupContainer">
           <%= f.select(:user_id, User.all.collect {|u| [u.first_name, u.id]},{},:prompt => 'Select username',:class=>"form-control") %>   
           </div>
@@ -24,32 +24,43 @@
          <%= f.label :Unselected,:class=>"col-sm-1 control-label"  %>
       
          <div class="col-md-3  inputGroupContainer">
-         <%= f.select(:region_id, Region.all.collect {|u| [u.region_name, u.id]},{},:prompt => 'Select Region',:class=>"form-control",:multiple => true) %>  
+         <%= f.select(:region_id, Region.find(Region.ids - UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},{},:prompt => 'Select Region',:class=>"form-control") %>   
           </div>
           </div>
          </div>
 
-
-
-<div class="form-group">
+         <div class="form-group">
+         <div class="col-md-6">
+          <%=link_to 'add', :id=>"left"%>
+         </div>
+          </div>
+         <div class="form-group">
+         <div class="col-sm-2">
+          <%=link_to 'remove', :id=>"right"%>
+         </div>
+         </div>
+         <div class="form-group">
         <label class="col-sm-1 control-label"></label>
         <div class="col-sm-3  inputGroupContainer">
-       <%= text_area(:text, "aaa", :size => "15x5") %>
-  </div>
-  </div>
+       <ul>
+        <% UserRegion.all.each do  |region| %>
+         <% if region.right == true %>
+         <li>
+              <%= Region.find(region.region_id).region_name%>
+         </li>
+        <% end %>
 
-<%=link_to 'add',:id=>'xyz'%>
-    <div class="form-group">
+        <% end %>
+       </ul>
+  </div>
+  </div>  
+
+        <div class="form-group">
         <label class="col-sm-2 control-label"></label>
-        <div class="col-sm-3  inputGroupContainer">
-    <%= f.submit "save", :class=>"btn btn-success"%>
+        <div class="col-sm-10 inputGroupContainer">
+        <%= f.submit "save", :class=>"btn btn-success"%>
   </div>
   </div>
 </div>
-
-        <br><br><br><br><br>
-
-       <div class="actions">
-        <%= f.submit %>
-  </div>
 <% end %>
+

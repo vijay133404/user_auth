@@ -15,9 +15,9 @@
       <tr>
         <td><%= node.node_name %></td>
         <td><%= node.place_id %></td>
-        <td><%= link_to 'Show', node %></td>
-        <td><%= link_to 'Edit', edit_node_path(node) %></td>
-        <td><%= link_to 'Destroy', node, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', node,:class=>"btn btn-success"%></td>
+        <td><%= link_to 'Edit', edit_node_path(node),:class=>"btn btn-success" %></td>
+        <td><%= link_to 'Destroy', node,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Node', new_node_path %>
+<%= link_to 'New Node', new_node_path,:class=>"btn btn-success" %>

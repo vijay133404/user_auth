@@ -13,9 +13,9 @@
     <% @cities.each do |city| %>
       <tr>
         <td><%= city.city_name %></td>
-        <td><%= link_to 'Show', city %></td>
-        <td><%= link_to 'Edit', edit_city_path(city) %></td>
-        <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', city ,:class=>"btn btn-success"%></td>
+        <td><%= link_to 'Edit', edit_city_path(city),:class=>"btn btn-success" %></td>
+        <td><%= link_to 'Destroy', city,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New City', new_city_path %>
+<%= link_to 'New City', new_city_path ,:class=>"btn btn-success"%>

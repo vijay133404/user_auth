@@ -1,9 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Region name:</strong>
-  <%= @user_region.region_name %>
+  <strong>User:</strong>
+  <%if @user_region.user_id.present? %>
+  <%= User.find(@user_region.user_id).first_name %>
+    <% end %>
 </p>
+
+<p>
+  <strong>Region:</strong>
+ <%if @user_region.region_id.present?%>
+  <%= Region.find(@user_region.region_id).region_name %>
+<%end%>
+</p>
+
 
 <%= link_to 'Edit', edit_user_region_path(@user_region) %> |
 <%= link_to 'Back', user_regions_path %>

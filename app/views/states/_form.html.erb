@@ -1,4 +1,4 @@
-<%= form_for(state) do |f| %>
+<%= form_for(state,:class=>"form-horizontal") do |f| %>
   <% if state.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(state.errors.count, "error") %> prohibited this state from being saved:</h2>
@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :state_name %>
-    <%= f.text_field :state_name %>
+  <div class="form-group">
+    <%= f.label :state_name,:class=>"col-sm-1 control-label" %>
+    <div class="col-md-3  inputGroupContainer">
+    <%= f.text_field :state_name,:class=>"form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :CountryName %>
-       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},:prompt => 'Select Country') %>
   </div>
+  <div class="form-group">
+    <%= f.label :CountryName ,:class=>"col-sm-1 control-label"%>
+    <div class="col-md-3  inputGroupContainer">
+       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},{},:class=>"form-control",:prompt => 'Select Country') %>
+  </div>
+<br><br><br><br>
 
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+  <div class="col-md-10 inputGroupContainer">
+    <%= f.submit :class=>"btn btn-success"%>
+  </div>
   </div>
 <% end %>

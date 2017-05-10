@@ -1,6 +1,8 @@
 <h1>Editing State</h1>
 
 <%= render 'form', state: @state %>
-
-<%= link_to 'Show', @state %> |
-<%= link_to 'Back', states_path %>
+<div class="col-md-3">
+<br><br>
+<%= link_to 'Show', @state,:class=>"btn btn-success"  %> |
+<%= link_to 'Back', states_path,:class=>"btn btn-success"  %>
+<div>

@@ -18,9 +18,9 @@
         <td><%= image.user_id %></td>
         <td><%= image.real_name %></td>
         <td><%= image.image_name %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', image ,:class=>"btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_image_path(image),:class=>"btn btn-success" %></td>
+        <td><%= link_to 'Destroy', image,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
