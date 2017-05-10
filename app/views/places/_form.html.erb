@@ -1,0 +1,44 @@
+<div class ="container">
+<%= form_for(place) do |f| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="form-group">
+    <%= f.label :place_name,:class=>"col-sm-2 control-label" %>
+    <div class="col-md-4  inputGroupContainer">
+    <%= f.text_field :place_name,:class=>"form-control" %>
+  </div>
+
+</div>
+
+
+   <div class="form-group">
+    <%= f.label :Node_Name,:class=>"col-sm-1 control-label"  %>
+    <div class="col-md-4  inputGroupContainer">
+    <%= f.select(:node, Node.all.collect {|u| [u.node_name , u.id]},{},:prompt => 'Select Node',:class=>"form-control" ) %>
+  </div>
+  </div>
+  <br><br><br>
+
+    <div class="form-group">
+    <%= f.label :Company,:class=>"col-sm-2 control-label"  %>
+    <div class="col-md-8 inputGroupContainer">
+    <%= f.select(:company_id, Company.all.collect {|u| [u.name, u.id]},{},:prompt => 'Select Company',:class=>"form-control" ) %>
+  </div>
+<br><br><br>
+
+ <div class="form-group">
+    <%= f.submit %>
+  </div>
+ 
+<% end %>
+</div>

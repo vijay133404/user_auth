@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserAuth</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+<body>
+<nav class="navbar navbar-default">
+   <div  class="container">
+    <div class="navbar-header">
+       
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+            <% if user_signed_in? %>
+             
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+               <li><a href="/users/sign_in">Login</a></li>
+               <li><a href="/users/sign_up">Sign Up</a></li>
+            <% end%>
+            
+             <li><%= link_to 'admin','admin' %></li>
+             <li><%= link_to 'Company','/companies' %></li> 
+
+             <li><%= link_to 'Country','/countries' %></li> 
+              <li><%= link_to 'State','/states' %></li>
+              <li><%= link_to 'City','/cities' %></li>
+              <li><%= link_to 'UserRoles','/user_roles'%>
+              <li><%= link_to 'Places','/places/new'%>
+              <li><%= link_to 'Add images','/images'%>
+              <li><%= link_to 'user_regions','/user_regions'%>
+              
+       
+       
+     </ul>
+ 
+ <% if user_signed_in?%>
+     <%=link_to "New Company",new_company_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New Country",new_country_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New State",new_state_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New City",new_city_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New User",new_manage_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%end%>
+    </div>
+    
+ </nav>
+
+
+    
+       <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<%= form_for(user_region) do |f| %>
+  <% if user_region.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_region.errors.count, "error") %> prohibited this user_region from being saved:</h2>
+
+      <ul>
+      <% user_region.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="form-group">
+        <label class="col-sm-2 control-label">UserName</label>
+        <div class="col-md-3  inputGroupContainer">
+          <%= f.select(:user_id, User.all.collect {|u| [u.first_name, u.id]},{},:prompt => 'Select username',:class=>"form-control") %>   
+          </div>
+          </div></br></br></br></br>
+
+
+         <div class="form-group">
+         <%= f.label :Unselected,:class=>"col-sm-1 control-label"  %>
+      
+         <div class="col-md-3  inputGroupContainer">
+         <%= f.select(:region_id, Region.all.collect {|u| [u.region_name, u.id]},{},:prompt => 'Select Region',:class=>"form-control",:multiple => true) %>  
+          </div>
+          </div>
+         </div>
+
+
+
+<div class="form-group">
+        <label class="col-sm-1 control-label"></label>
+        <div class="col-sm-3  inputGroupContainer">
+       <%= text_area(:text, "aaa", :size => "15x5") %>
+  </div>
+  </div>
+
+<%=link_to 'add',:id=>'xyz'%>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-3  inputGroupContainer">
+    <%= f.submit "save", :class=>"btn btn-success"%>
+  </div>
+  </div>
+</div>
+
+        <br><br><br><br><br>
+
+       <div class="actions">
+        <%= f.submit %>
+  </div>
+<% end %>

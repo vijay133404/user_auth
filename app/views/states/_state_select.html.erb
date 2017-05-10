@@ -1,0 +1,21 @@
+
+<select id="company_state_id" name="company[state_id]">
+<option value="">Select State</option>
+<% @states.each do |state| %>
+   <option value="<%= state.id%>"><%= state.state_name%></option>
+<%end%>
+</select>
+
+<script>
+$(document).ready(function() {
+$('#company_state_id').change(function(){
+  var state =  $('#company_state_id').val()
+  alert(2)
+  $.ajax({
+    url: "/cities/get_cities",
+    type: "GET",
+    data: {state: state},
+  });
+});
+});
+</script>

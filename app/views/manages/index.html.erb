@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>add user</h1>
+
+<table class = "table table-hover">
+  <thead>
+    <tr>
+      <th>FirstName</th>
+       <th>Lastname</th>
+      <th>Email</th>
+      <th>Company</th>
+      <th>Role</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>MonthlyCharge</th>
+
+      <th>Notes</th>
+      <th>Image</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manages.each do |manage| %>
+      <tr>
+        <td><%= manage.first_name %></td>
+        <td><%= manage.last_name %></td>
+        <td><%= manage.email %></td>
+        <td><%= manage.company_id %></td>
+        <td><%= manage.role_id %></td>
+        <td><%= manage.start_date %></td>
+        <td><%= manage.end_date %></td>
+        <td><%= manage.monthly_charge %></td>
+        <td><%= manage.notes%></td>
+        <td><%= manage.image_id%></td>
+        <td><%= manage.active %></td>
+        
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New add user', new_manage_path %>
