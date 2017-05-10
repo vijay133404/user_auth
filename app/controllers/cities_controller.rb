@@ -10,17 +10,16 @@ class CitiesController < ApplicationController
   def show
   end
 
-  # GET /cities/new
+  
   def new
     @city = City.new
   end
 
-  # GET /cities/1/edit
+  
   def edit
   end
 
-  # POST /cities
-  # POST /cities.json
+  
   def create
     @city = City.new(city_params)
 
