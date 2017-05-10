@@ -24,27 +24,34 @@
                <li><a href="/users/sign_up">Sign Up</a></li>
             <% end%>
             
-             <li><%= link_to 'admin','admin' %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                All Show Page <b class="caret"></b>
+              </a>
+               <ul class="dropdown-menu">
+         <li><%= link_to 'admin','admin' %></li>
              <li><%= link_to 'Company','/companies' %></li> 
 
              <li><%= link_to 'Country','/countries' %></li> 
               <li><%= link_to 'State','/states' %></li>
               <li><%= link_to 'City','/cities' %></li>
-              <li><%= link_to 'UserRoles','/user_roles'%>
-              <li><%= link_to 'Places','/places/new'%>
-              <li><%= link_to 'Add images','/images'%>
-              <li><%= link_to 'user_regions','/user_regions'%>
+              <li><%= link_to 'UserRoles','/user_roles'%></li>
+              <li><%= link_to 'Places','/places/new'%></li>
+              <li><%= link_to 'Add images','/images'%></li>
+              <li><%= link_to 'user_regions','/user_regions'%></li> 
+            </ul>
+                
               
        
+    
        
      </ul>
- 
  <% if user_signed_in?%>
-     <%=link_to "New Company",new_company_path,class: " navbar-text-navbar-link navbar-right"%>
-     <%=link_to "New Country",new_country_path,class: " navbar-text-navbar-link navbar-right"%>
-     <%=link_to "New State",new_state_path,class: " navbar-text-navbar-link navbar-right"%>
-     <%=link_to "New City",new_city_path,class: " navbar-text-navbar-link navbar-right"%>
-     <%=link_to "New User",new_manage_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New Company||",new_company_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New Country||",new_country_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New State||",new_state_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New City||",new_city_path,class: " navbar-text-navbar-link navbar-right"%>
+     <%=link_to "New User||",new_manage_path,class: " navbar-text-navbar-link navbar-right"%>
      <%end%>
     </div>
     
@@ -57,3 +64,4 @@
     <%= yield %>
   </body>
 </html>
+
