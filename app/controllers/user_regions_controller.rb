@@ -25,7 +25,10 @@ class UserRegionsController < ApplicationController
   # POST /user_regions.json
   def create
     @user_region = UserRegion.new(user_region_params)
-
+     UserRegion.all.each do |region| 
+      @user_region.right = true
+         
+         end
     respond_to do |format|
       if @user_region.save
         format.html { redirect_to @user_region, notice: 'User region was successfully created.' }

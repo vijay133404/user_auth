@@ -4,19 +4,19 @@
     <title>UserAuth</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      </head>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
-<body>
-<nav class="navbar navbar-light" style="background-color: #81c784;">
-   <div  class="container">
-    <div class="navbar-header">
-       
-    </div>
-    <ul class="nav navbar-nav navbar-left">
-            <% if user_signed_in? %>
+    <body>
+    <nav class="navbar navbar-light" style="background-color: #81c784;">
+       <div  class="container">
+        <div class="navbar-header">
+           
+        </div>
+        <ul class="nav navbar-nav navbar-left">
+                <% if user_signed_in? %>
              
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
             <% else %>
@@ -41,30 +41,25 @@
               <li><%= link_to 'user_regions','/user_regions'%></li> 
             </ul>
                 
-              
-       
-    
-       
      </ul>
+     <ul class="nav navbar-nav navbar-right">
               <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 All Show New page<b class="caret"></b>
               </a>
- <% if user_signed_in?%>
- <ul class="dropdown-menu">
-     <li><%=link_to "New Company||",new_company_path,class: " navbar-text-navbar-link navbar-right"%></li>
-     <li><%=link_to "New Country||",new_country_path,class: " navbar-text-navbar-link navbar-right"%><li>
-     <li><%=link_to "New State||",new_state_path,class: " navbar-text-navbar-link navbar-right"%><li>
-     <li><%=link_to "New City||",new_city_path,class: " navbar-text-navbar-link navbar-right"%><li>
-          <li><%=link_to "New User||",new_manage_path,class: " navbar-text-navbar-link navbar-right"%></li>
-     <%end%>
-     </ul>
-    </div>
+       <% if user_signed_in?%>
+       <ul class="dropdown-menu">
+           <li><%=link_to "New Company",new_company_path,class: " navbar-text-navbar-link navbar-right"%></li>
+           <li><%=link_to "New Country",new_country_path,class: " navbar-text-navbar-link navbar-right"%><li>
+           <li><%=link_to "New State",new_state_path,class: " navbar-text-navbar-link navbar-right"%><li>
+           <li><%=link_to "New City",new_city_path,class: " navbar-text-navbar-link navbar-right"%><li>
+                <li><%=link_to "New User",new_manage_path,class: " navbar-text-navbar-link navbar-right"%></li>
+           <%end%>
+           </ul>
+           </ul>
+          </div>
     
  </nav>
-
-
-    
        <p class="alert"><%= alert %></p>
 
     <%= yield %>

@@ -6,27 +6,28 @@
 </p>
 
 <p>
-  <strong>Country:</strong>
+  <strong>lastname:</strong>
   <%= @manage.last_name %>
 </p>
 
 <p>
-  <strong>State:</strong>
+  <strong>Company:</strong>
 <%= @manage.company_id %>
 </p>
 
+
 <p>
-  <strong>City:</strong>
+  <strong>Role:</strong>
   <%= @manage.role_id %>
 </p>
 
 <p>
-  <strong>Postcode:</strong>
+  <strong>Start date:</strong>
   <%= @manage.start_date %>
 </p>
 
 <p>
-  <strong>Start date:</strong>
+  <strong>End date:</strong>
   <%= @manage.end_date %>
 </p>
 
@@ -43,3 +44,5 @@
   <%= @manage.active %>
 </p>
 
+<%= link_to 'Edit', edit_manage_path(@manage),:class=>"btn btn-success" %> |
+<%= link_to 'Back', manages_path ,:class=>"btn btn-success"%>

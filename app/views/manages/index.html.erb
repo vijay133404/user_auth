@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>add user</h1>
+  <h1>Listing User</h1>
 
 <table class = "table table-hover">
   <thead>
@@ -37,7 +38,7 @@
         <td><%= manage.active %></td>
         <td><%= link_to 'Show', manage_path(manage), :class=>"btn btn-success" %></td>
          <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
-        <td><%= link_to 'Destroy', manages_path(manage),
+        <td><%= link_to 'Destroy',"/manages/#{manage.id}",
               method: :delete,
               data: { confirm: 'Are you sure?' }, :class=>"btn btn-success" %></td>
       </tr> 
@@ -48,3 +49,4 @@
 <br>
 
 <%= link_to 'New add user', new_manage_path,:class=>"btn btn-success" %>
+</div>
