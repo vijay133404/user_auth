@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 
 <p>
   <strong>First Name:</strong>
@@ -12,13 +13,13 @@
 
 <p>
   <strong>Company:</strong>
-<%= @manage.company_id %>
+<%= Company.find(@manage.company_id).name %>
 </p>
 
 
 <p>
   <strong>Role:</strong>
-  <%= @manage.role_id %>
+  <%= UserRole.find(@manage.role_id).role_name %>
 </p>
 
 <p>
@@ -46,3 +47,4 @@
 
 <%= link_to 'Edit', edit_manage_path(@manage),:class=>"btn btn-success" %> |
 <%= link_to 'Back', manages_path ,:class=>"btn btn-success"%>
+</div>

@@ -22,7 +22,7 @@
     <div class="form-group">
             <%= f.label :CountryName,:class=>"col-sm-1 control-label" %>
            <div class="col-sm-2  inputGroupContainer">
-       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},:prompt => 'Select Country',:class=>"form-control" ) %>
+       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},{},:prompt => 'Select Country',:class=>"form-control" ) %>
        </div>
       </div>
       
@@ -30,7 +30,7 @@
           <%= f.label :StateName,:class=>"col-sm-1 control-label"  %>
            <div class="col-sm-2  inputGroupContainer">
          <div class="statecontainer">
-           <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State',:class=>"form-control") %>
+           <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},{},:prompt => 'Select State',:class=>"form-control") %>
         </div>
         </div>
      </div>
@@ -40,7 +40,7 @@
           <%= f.label :CityName ,:class=>"col-sm-1"%>
            <div class="col-sm-2  inputGroupContainer">
           <div class="citycontainer">
-               <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},:prompt => 'Select City',:class=>"form-control") %>
+               <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},{},:prompt => 'Select City',:class=>"form-control") %>
           </div>
        </div>
   </div>

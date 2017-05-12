@@ -1,3 +1,5 @@
+<div class="containner">
+<div class="col-md-6">
 <%= form_for(user_region) do |f| %>
   <% if user_region.errors.any? %>
     <div id="error_explanation">
@@ -11,64 +13,69 @@
     </div>
   <% end %>
 
-  
-  <div class="form-group">
-        <label class="col-sm-1 control-label">UserName</label>
+
+<div class="form-group">
+        <label class="col-sm-2 control-label">UserName</label>
         <div class="col-md-3  inputGroupContainer">
-          <%= f.select(:user_id, User.all.collect {|u| [u.first_name, u.id]},{},:prompt => 'Select username',:class=>"form-control") %>   
+          <%= f.select(:user_id, User.all.collect {|u| [u.first_name, u.id]},{},:prompt => 'Select username',:class=>"form-control") %>
           </div>
-          </div></br></br></br></br>
-
-
-         <div class="form-group">
-         <%= f.label :Unselected,:class=>"col-sm-1 control-label"  %>
-      
-         <div class="col-md-3  inputGroupContainer">
-         <%= f.select(:region_id, Region.find(Region.ids - UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},{},:prompt => 'Select Region',:class=>"form-control") %>   
+          </div></br></br>
+     <div class="inline">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Region</label>
+        <div class="col-md-3  inputGroupContainer">
+         <%= f.select(:region_id, Region.find(Region.ids - UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},:prompt => 'Select Region',:class=>"form-control") %>
           </div>
           </div>
-         </div>
-
-         <div class="form-group">
-         <div class="col-md-6">
-          <%=link_to 'add', :id=>"left"%>
-         </div>
-          </div>
-         <div class="form-group">
-         <div class="col-sm-8">
-         <div class="col-sm-3  inputGroupContainer">
-          <%=link_to 'remove', :id=>"right"%>
-         </div>
-         </div>
-         </div>
-         <div class="form-group">
-        <label class="col-sm-1 control-label"></label>
-        <div class="col-sm-3  inputGroupContainer">
-       <ul>
-        <% UserRegion.all.each do  |region| %>
-         <% if region.right == true %>
-         <li>
-              <%= Region.find(region.region_id).region_name%>
-         </li>
-        <% end %>
-
-        <% end %>
-       </ul>
-  </div>
-  </div>  
-   <br><br><br> <br><br><br>
-        <div class="form-group">
+       </div>
+       <br><br><br>
+    <div class="form-group">
         <label class="col-sm-2 control-label"></label>
-        <div class="col-sm-10 inputGroupContainer">
-        <%= f.submit "save", :class=>"btn btn-success"%>
+        <div class="col-sm-3  inputGroupContainer">
+    <%= f.submit "save", :class=>"btn btn-success"%>
   </div>
   </div>
+<% end %>
+</div>
+
+<div class="col-md-6">
+<%= form_for(user_region) do |f| %>
+  <% if user_region.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_region.errors.count, "error") %> prohibited this user_region from being saved:</h2>
+
+      <ul>
+      <% user_region.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Region</label>
+        <div class="col-md-3  inputGroupContainer">
+         <%= f.select(:region_id, Region.find(UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},:prompt => 'Select Region',:class=>"form-control") %>
+          </div>
+          </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label"></label>
+        <div class="col-sm-2  inputGroupContainer">
+       <%= f.hidden_field :right_value, :value => "xyz" %>
+  </div>
+  </div>
+  <br><br>
+    <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-3  inputGroupContainer">
+    <%= f.submit "Remove", :class=>"btn btn-success"%>
+  </div>
+  </div>
+<% end %>
+</div>
 </div>
 
 
 
 
-
-
-<% end %>
 

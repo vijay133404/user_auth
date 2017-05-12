@@ -5,6 +5,8 @@ class User < ApplicationRecord
   belongs_to :company
   belongs_to :UserRole
   belongs_to :region
+  validates :company_id,presence: true
+  validates :role_id,presence: true
    
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
