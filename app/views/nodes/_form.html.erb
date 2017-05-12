@@ -18,12 +18,7 @@
   </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :place_id,:class=>"col-sm-1 control-label"%>
-    <div class="col-md-3  inputGroupContainer">
-    <%= f.select(:place_id, Place.all.collect {|u| [u.place_name , u.id]},{},:prompt => 'Select places',:class=>"form-control" ) %>
-  </div>
- </div>
+ <br><br>
  <div class="form-group">
   <div class="col-md-10 inputGroupContainer">
     <%= f.submit :class=>"btn btn-success" %>

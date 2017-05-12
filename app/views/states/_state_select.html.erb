@@ -10,7 +10,7 @@
 $(document).ready(function() {
 $('#company_state_id').change(function(){
   var state =  $('#company_state_id').val()
-  alert(2)
+  
   $.ajax({
     url: "/cities/get_cities",
     type: "GET",

@@ -22,7 +22,7 @@
           </div></br></br>
      <div class="inline">
       <div class="form-group">
-        <label class="col-sm-2 control-label">Region</label>
+        <label class="col-sm-2 control-label">Unselectes Region</label>
         <div class="col-md-3  inputGroupContainer">
          <%= f.select(:region_id, Region.find(Region.ids - UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},:prompt => 'Select Region',:class=>"form-control") %>
           </div>
@@ -53,7 +53,7 @@
   <% end %>
 
       <div class="form-group">
-        <label class="col-sm-2 control-label">Region</label>
+        <label class="col-sm-2 control-label">selected Region</label>
         <div class="col-md-3  inputGroupContainer">
          <%= f.select(:region_id, Region.find(UserRegion.all.map(&:region_id).uniq).collect {|u| [u.region_name, u.id]},:prompt => 'Select Region',:class=>"form-control") %>
           </div>
@@ -66,7 +66,7 @@
   </div>
   <br><br>
     <div class="form-group">
-        <label class="col-sm-2 control-label"></label>
+        <label class="col-sm-1 control-label"></label>
         <div class="col-sm-3  inputGroupContainer">
     <%= f.submit "Remove", :class=>"btn btn-success"%>
   </div>

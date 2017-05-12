@@ -44,7 +44,11 @@
         <td><%= manage.image_id%></td>
         <td><%= manage.active %></td>
         <td><%= link_to 'Show', manage_path(manage), :class=>"btn btn-success" %></td>
-         <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
+         <td>
+         <% if user_permission_admin?%>
+        <%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
+         <%end%>
+        
         <td><%= link_to 'Destroy',"/manages/#{manage.id}",
               method: :delete,
               data: { confirm: 'Are you sure?' }, :class=>"btn btn-success" %></td>
