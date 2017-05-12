@@ -13,6 +13,8 @@ gem 'rails', '~> 5.0.2'
 #gem  'mysql2'
 gem 'devise'
 gem'pg'
+#gem'pg'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

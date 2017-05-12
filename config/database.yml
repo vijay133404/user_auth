@@ -1,14 +1,13 @@
-default: &default
-  adapter: postgresql
-  pool: 5
-  username: root
-  password: root 
-  timeout: 5000
-
 development:
-  <<: *default
-  database: project_nccc_dev
+  adapter: postgresql
+  encoding: utf8
+  database: my_db1_name
+  username: root
+  password: root
 
-production:
-  <<: *default
-  database: project_nccc_dev
+production: 
+  adapter: postgresql
+  encoding: utf8
+  database: my_db1_name
+  username: root
+  password: root
