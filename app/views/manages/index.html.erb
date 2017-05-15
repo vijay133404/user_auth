@@ -46,8 +46,9 @@
         <td><%= link_to 'Show', manage_path(manage), :class=>"btn btn-success" %></td>
          <td>
          <% if user_permission_admin? %>
+          <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
              <% elsif  user_check(manage, current_user) %>
-             <%= link_to 'Edit', edit_manage_path(user), :class=>"btn btn-success"%>
+              <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
           <% end%>
         
         <td><%= link_to 'Destroy',"/manages/#{manage.id}",
