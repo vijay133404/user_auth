@@ -1,7 +1,7 @@
 
 module ApplicationHelper
     def user_permission_admin?
-       if current_user
+       if current_user.present?
          UserRole.find(current_user.role_id).role_name == "admin"
        else
        false
@@ -10,27 +10,30 @@ module ApplicationHelper
 
     
 
-    def user_permission_user?
-       if current_user
-         UserRole.find(current_user.role_id).role_name == "user"
+    def user_permission_check(manage, current_user)
+   
+        if UserRole.find(current_user.role_id).role_name == "user"
+       if  manage.id == current_user.id
+         true
        else
        false
+         end
        end
     end
 
+
     def user_check(manage, curr_user)
         if UserRole.find(curr_user.role_id).role_name == "manager"
-            if  manage.company_id == curr_user.company_id
+           if  manage.company_id == curr_user.company_id
               true
             else
               false
             end
-       
-
-
-        else
-        false
         end
+      
     end
+
+
+    
 end
 

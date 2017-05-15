@@ -4,7 +4,7 @@
     <title>UserAuth</title>
     <%= csrf_meta_tags %>
 
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       </head>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
@@ -16,8 +16,8 @@
            
         </div>
         <ul class="nav navbar-nav navbar-left">
-                <% if user_signed_in? %>
-             
+          <% if user_signed_in? %>
+              
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
             <% else %>
                <li><a href="/users/sign_in">Login</a></li>

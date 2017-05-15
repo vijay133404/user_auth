@@ -36,7 +36,7 @@
         <%if manage.company_id.present?%>
         <%= UserRole.find(manage.role_id).role_name %>
         <% end %></td>
-       
+         
         <td><%= manage.start_date %></td>
         <td><%= manage.end_date %></td>
         <td><%= manage.monthly_charge %></td>
@@ -49,6 +49,9 @@
           <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
              <% elsif  user_check(manage, current_user) %>
               <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
+               <% elsif  user_permission_check(manage, current_user) %>
+              <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
+
           <% end%>
         
         <td><%= link_to 'Destroy',"/manages/#{manage.id}",

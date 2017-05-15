@@ -5,9 +5,15 @@ class User < ApplicationRecord
   belongs_to :company
   belongs_to :UserRole
   belongs_to :region
-  validates :company_id,presence: true
-  validates :role_id,presence: true
-   
+
+  validate :end_date_after_start_date?
+
+def end_date_after_start_date?
+  if end_date < start_date
+    errors.add :end_date, "must be after start date"
+  end
+end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

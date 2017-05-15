@@ -23,8 +23,8 @@ class ManagesController < ApplicationController
   def edit
   end
 
-  # POST /cities
-  # POST /cities.json
+
+
   def create
     @manage = User.new(manage_params)
     @manage.password = 12345678
@@ -76,6 +76,8 @@ class ManagesController < ApplicationController
     def manage_params
       params.require(:user).permit(:first_name,:last_name,:email,:company_id,:role_id,:start_date,:end_date,:monthly_charge,:image_id,:active,:notes)
     end
+
+
 end
 
 
