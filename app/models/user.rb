@@ -7,7 +7,8 @@ class User < ApplicationRecord
   belongs_to :region
 
   validates_presence_of :end_date, presence: true
-  validates_presence_of :start_date, presence: true 
+  validates_presence_of :start_date, presence: true
+  validates_presence_of :end_date_after_start_date?
 
   
 

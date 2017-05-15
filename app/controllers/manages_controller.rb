@@ -77,8 +77,6 @@ class ManagesController < ApplicationController
       params.require(:user).permit(:first_name,:last_name,:email,:company_id,:role_id,:start_date,:end_date,:monthly_charge,:image_id,:active,:notes)
     end
   
-  
-
 end
 
 
