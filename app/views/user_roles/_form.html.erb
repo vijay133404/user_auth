@@ -1,4 +1,5 @@
 <%= form_for(user_role) do |f| %>
+<% if current_user.present? %>
   <% if user_role.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_role.errors.count, "error") %> prohibited this user_role from being saved:</h2>
