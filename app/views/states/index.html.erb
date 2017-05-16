@@ -1,6 +1,6 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-
+<div id="state-edit-partial"></div> 
 <h1>States List</h1>
 
 <table class = "table table-hover">  <thead>
@@ -15,7 +15,7 @@
       <tr>
         <td><%= state.state_name %></td>
         <td><%= link_to 'Show', state,:class=>"btn btn-success" %></td>
-        <td><%= link_to 'Edit', edit_state_path(state),:class=>"btn btn-success" %></td>
+        <td><%= link_to 'Edit',  states_edit_state_path(state),:class=>"btn btn-success",:remote=>true %></td>
         <td><%= link_to 'Destroy', state,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

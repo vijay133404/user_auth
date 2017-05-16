@@ -21,6 +21,13 @@ class StatesController < ApplicationController
   def edit
   end
 
+  def states_edit
+  @state =  State.find(params[:id])
+  respond_to do |format|
+    format.js { render :file => "/states/states_edit.js.erb" } # create a file named inline_edit.js.erb
+  end
+end
+
   # POST /states
   # POST /states.json
   def create

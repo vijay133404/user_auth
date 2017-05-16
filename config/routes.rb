@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :regions
-  resources :nodes
+  
+  resources :nodes do
+    member do
+      get :nodes_edit
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :places
@@ -15,14 +19,28 @@ Rails.application.routes.draw do
     collection do
       get :get_states
     end
-  end
+      member do 
+      get :states_edit
+    end
+   end
   resources :countries
   resources :user_regions
   resources :user_roles
-  resources :companies
+  resources :companies do 
+  member do
+   get :inline_edit
+  end
+ end
+
   resources :manages
   devise_for :users
 
+  resources :regions do
+    member do
+      get :region_edit
+      end
+     end 
+  
   root 'companies#index'
   
 

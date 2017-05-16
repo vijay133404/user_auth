@@ -21,7 +21,29 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    # respond_to do |format|
+    #   if @company
+    #     # format.html { render "edit_companies.js"  }
+    #   end
+    # end
+
   end
+
+def inline_edit
+  @company = Company.find(params[:id])
+  respond_to do |format|
+    format.js { render :file => "/companies/inline_edit.js.erb" } # create a file named inline_edit.js.erb
+  end
+end
+
+
+
+
+
+
+
+
+
 
   # POST /companies
   # POST /companies.json
