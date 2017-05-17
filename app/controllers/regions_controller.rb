@@ -7,6 +7,23 @@ def region_edit
   end
 end
 
+def update
+	@region = Region.find(params[:id])
+       respond_to do |format|
+
+      if @region.update(region_params)
+         @regions = Region.all
+        format.js { render :file => 'regions/update_region.js.erb', notice: 'Company was successfully updated.' }
+        format.json { render :show, status: :ok, location: @company }
+      else
+        format.html { render :edit }
+        format.json { render json: @company.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
 
 
 

@@ -1,4 +1,6 @@
-<%= form_for(company ,:class=>"form-horizontal")  do |f| %>
+<div id="new_update">
+<%= form_for(company ,:class=>"form-horizontal",:remote=>true)  do |f| %>
+
 <div class="container">
   <% if company.errors.any? %>
     <div id="error_explanation">
@@ -28,10 +30,10 @@
       
       <div class="form-group">
           <%= f.label :StateName,:class=>"col-sm-1 control-label"  %>
-           <div class="col-sm-2  inputGroupContainer">
+          <div class="col-sm-2  inputGroupContainer">
            <div class="statecontainer">
-           <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State',:class=>"form-control") %>
-        </div>
+             <%= f.select(:state_id, State.all.collect {|u| [u.state_name, u.id]},:prompt => 'Select State',:class=>"form-control") %>
+           </div>
         </div>
      </div>
 
@@ -39,11 +41,11 @@
     <div class="form-group">
           <%= f.label :CityName ,:class=>"col-sm-1"%>
            <div class="col-sm-2  inputGroupContainer">
-           <div class="citycontainer">
+             <div class="citycontainer">
                <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},:prompt => 'Select City',:class=>"form-control") %>
-          </div>
-       </div>
-  </div>
+             </div>
+         </div>
+    </div>
  <br><br><br>
 
          <div class="form-group">
@@ -51,30 +53,32 @@
                <div class="col-sm-2  inputGroupContainer">
                    <%= f.text_field :postcode %>
                </div>
-        <div>
+           <div>
                <div class="form-group">
                <%= f.label :start_date,:class=>"col-sm-2 control-label" %>
                 <div class="col-sm-2  inputGroupContainer">
                 <%= f.text_field :start_date, :id=>"datetimepicker1",:class=>"form-control" %>
-                <script type="text/javascript">
+
+              <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker();
             });
             </script>
-           
+           </div>
+           </div>
 
- <div class="form-group">
+  <div class="form-group">
     <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
   
 
   <div class="actions">
-    <%= f.submit :class=>"btn btn-success" %>
+    <%= f.submit :class=>"btn btn-success",:remote=>true %>
   </div>
-<% end %>
+  <% end %>
+ </div>
 </div>
-
 <script>
 $(document).ready(function() {
 $('#company_country_id').change(function(){

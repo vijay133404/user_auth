@@ -7,6 +7,23 @@ def nodes_edit
   end
 end
 
+def update
+	@node = Node.find(params[:id])
+       respond_to do |format|
+
+      if @node.update(node_params)
+         @nodes = Node.all
+        format.js { render :file => 'nodes/update_nodes.js.erb', notice: 'Company was successfully updated.' }
+        format.json { render :show, status: :ok, location: @node }
+      else
+        format.html { render :edit }
+        format.json { render json: @node.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
 
 
   private

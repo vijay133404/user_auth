@@ -1,5 +1,6 @@
 class ManagesController < ApplicationController
-	before_action :manage_user, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!,:except => [:new,:show,:create]
+	 before_action :manage_user, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
   # GET /cities.json
@@ -32,7 +33,8 @@ class ManagesController < ApplicationController
       if @manage.save
         
         Image.create(:image_name=> params[:user][:image_id],:imageable_id=> @manage.id,:imageable_type=> "User")
-        #@manage.images.create(:image_name=> params[:manage][:image_id] 
+        #@manage.images.create(:image_name=> params[:manage][:image_id]
+       
         format.html { redirect_to manages_path, notice: 'User was successfully created.'}
         format.json { render :show, status: :created, location: @manage }
       else

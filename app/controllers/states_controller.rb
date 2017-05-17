@@ -49,7 +49,8 @@ end
   def update
     respond_to do |format|
       if @state.update(state_params)
-        format.html { redirect_to @state, notice: 'State was successfully updated.' }
+        @states = State.all
+         format.js { render :file => 'states/update_state.js.erb', notice: 'Company was successfully updated.' } 
         format.json { render :show, status: :ok, location: @state }
       else
         format.html { render :edit }
