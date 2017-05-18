@@ -14,7 +14,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+     <div class="form-group">
             <%= f.label :name,:class=>"col-sm-1 control-label"  %>
           <div class="col-sm-5 inputGroupContainer">
              <%= f.text_field :name,:class=>"form-control" %>
@@ -24,8 +24,8 @@
     <div class="form-group">
             <%= f.label :CountryName,:class=>"col-sm-1 control-label" %>
            <div class="col-sm-2  inputGroupContainer">
-       <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},:prompt => 'Select Country',:class=>"form-control") %>
-       </div>
+           <%= f.select(:country_id, Country.all.collect {|u| [u.country_name, u.id]},:prompt => 'Select Country',:class=>"form-control") %>
+           </div>
       </div>
       
       <div class="form-group">
@@ -53,7 +53,7 @@
                <div class="col-sm-2  inputGroupContainer">
                    <%= f.text_field :postcode %>
                </div>
-           <div>
+          </div>
             <div class="form-group">
                <%= f.label :start_date,:class=>"col-sm-2 control-label" %>
               <div class="col-sm-2  inputGroupContainer">
