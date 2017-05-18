@@ -21,6 +21,7 @@
           </div>
       </div>
      <br><br>
+     <div class="inline">
     <div class="form-group">
             <%= f.label :CountryName,:class=>"col-sm-1 control-label" %>
            <div class="col-sm-2  inputGroupContainer">
@@ -45,6 +46,7 @@
                <%= f.select(:city_id, City.all.collect {|u| [u.city_name, u.id]},:prompt => 'Select City',:class=>"form-control") %>
              </div>
          </div>
+    </div>
     </div>
  <br><br><br>
 
