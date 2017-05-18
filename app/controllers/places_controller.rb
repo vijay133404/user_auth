@@ -20,6 +20,17 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
   end
+   
+   def place_edit
+      @place = Place.find(params[:id])
+      respond_to do |format|
+       format.js { render :file => "/places/place_edit.js.erb" }
+   
+      end
+    end
+
+
+
 
   # POST /places
   # POST /places.json
@@ -40,9 +51,11 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
+     @place = Place.find(params[:id])
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+         @places = Place.all
+         format.js { render :file => "/places/place_update.js.erb" }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }

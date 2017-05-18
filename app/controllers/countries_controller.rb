@@ -14,12 +14,12 @@ class CountriesController < ApplicationController
   end
 
 
-    def country_show
-        @country= Country.find(params[:id])
-         respond_to do |format|
-          format.js { render :file => "/countries/country_show.js.erb" } # create a file named inline_edit.js.erb
-        end
-    end
+    # def country_show
+    #     @country= Country.find(params[:id])
+    #      respond_to do |format|
+    #       format.js { render :file => "/countries/country_show.js.erb" } # create a file named inline_edit.js.erb
+    #     end
+    # end
 
       def country_edit
           @country= Country.find(params[:id])
@@ -59,6 +59,7 @@ class CountriesController < ApplicationController
   # PATCH/PUT /countries/1
   # PATCH/PUT /countries/1.json
   def update
+    @country= Country.find(params[:id])
     respond_to do |format|
       if @country.update(country_params)
          @countries = Country.all

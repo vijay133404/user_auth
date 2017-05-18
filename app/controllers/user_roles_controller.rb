@@ -16,6 +16,14 @@ class UserRolesController < ApplicationController
   def new
     @user_role = UserRole.new
   end
+  
+   def user_role_edit
+     @user_role = UserRole.find(params[:id])
+      respond_to do |format|
+        format.js { render :file => "/user_roles/user_edit.js.erb" } 
+        end
+   end
+
 
   # GET /user_roles/1/edit
   def edit
@@ -40,9 +48,11 @@ class UserRolesController < ApplicationController
   # PATCH/PUT /user_roles/1
   # PATCH/PUT /user_roles/1.json
   def update
-    respond_to do |format|
+     @user_role = UserRole.find(params[:id])
+      respond_to do |format|
       if @user_role.update(user_role_params)
-        format.html { redirect_to @user_role, notice: 'User role was successfully updated.' }
+        @user_roles = UserRole.all
+        format.js { render :file => "/user_roles/user_update.js.erb" } 
         format.json { render :show, status: :ok, location: @user_role }
       else
         format.html { render :edit }

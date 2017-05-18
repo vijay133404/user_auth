@@ -54,28 +54,22 @@
                    <%= f.text_field :postcode %>
                </div>
            <div>
-               <div class="form-group">
+            <div class="form-group">
                <%= f.label :start_date,:class=>"col-sm-2 control-label" %>
-                <div class="col-sm-2  inputGroupContainer">
+              <div class="col-sm-2  inputGroupContainer">
                 <%= f.text_field :start_date, :id=>"datetimepicker1",:class=>"form-control" %>
+          </div>
+        </div>
 
-              <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-            </script>
-           </div>
-           </div>
+        <div class="form-group">
+          <%= f.label :active %>
+          <%= f.check_box :active %>
+        </div>
+      
 
-  <div class="form-group">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
-  </div>
-  
-
-  <div class="actions">
-    <%= f.submit :class=>"btn btn-success",:remote=>true %>
-  </div>
+       <div class="actions">
+        <%= f.submit :class=>"btn btn-success",:remote=>true %>
+      </div>
   <% end %>
  </div>
 </div>
@@ -94,5 +88,11 @@ $('#company_country_id').change(function(){
 </script>
 
 
-
+<script type="text/javascript">
+            $(function () {
+               $('#datetimepicker1').datetimepicker({
+                format: 'DD-MM-YYYY'
+             });
+               }); 
+            </script>
 

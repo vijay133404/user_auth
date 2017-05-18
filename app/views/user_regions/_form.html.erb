@@ -1,6 +1,7 @@
+
 <div class="container">
 <div class="col-md-6">
-<%= form_for(user_region) do |f| %>
+<%= form_for(user_region ,:class=>"form-horizontal",:remote=>true) do |f| %>
   <% if user_region.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_region.errors.count, "error") %> prohibited this user_region from being saved:</h2>
@@ -69,7 +70,6 @@
         <label class="col-sm-1 control-label"></label>
         <div class="col-sm-3  inputGroupContainer">
     <%= f.submit "Remove", :class=>"btn btn-success"%>
-  </div>
   </div>
 <% end %>
 </div>
