@@ -13,6 +13,24 @@ class CountriesController < ApplicationController
   
   end
 
+
+    def country_show
+        @country= Country.find(params[:id])
+         respond_to do |format|
+          format.js { render :file => "/countries/country_show.js.erb" } # create a file named inline_edit.js.erb
+        end
+    end
+
+      def country_edit
+          @country= Country.find(params[:id])
+          respond_to do |format|
+            format.js { render :file => "/countries/country_edit.js.erb" } # create a file named inline_edit.js.erb
+            end
+      end
+
+
+
+
   # GET /countries/new
   def new
     @country = Country.new
@@ -43,7 +61,8 @@ class CountriesController < ApplicationController
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to @country, notice: 'Country was successfully updated.' }
+         @countries = Country.all
+         format.js { render :file => 'countries/update_country.js.erb', notice: 'Company was successfully updated.' }
         format.json { render :show, status: :ok, location: @country }
       else
         format.html { render :edit }

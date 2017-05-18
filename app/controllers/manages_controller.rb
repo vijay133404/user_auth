@@ -34,7 +34,7 @@ before_action :authenticate_user!,:except => [:new,:show,:create]
         
         Image.create(:image_name=> params[:user][:image_id],:imageable_id=> @manage.id,:imageable_type=> "User")
         #@manage.images.create(:image_name=> params[:manage][:image_id]
-       
+        sign_in @manage
         format.html { redirect_to manages_path, notice: 'User was successfully created.'}
         format.json { render :show, status: :created, location: @manage }
       else

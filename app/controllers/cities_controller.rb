@@ -19,6 +19,17 @@ class CitiesController < ApplicationController
   def edit
   end
 
+
+  def cities_edit
+        @city = City.find(params[:id])
+        respond_to do |format|
+         
+      format.js { render :file => "/cities/cities_edit.js.erb" } 
+   end
+  end
+
+
+
   # POST /cities
   # POST /cities.json
   def create
@@ -43,8 +54,10 @@ class CitiesController < ApplicationController
   
   def update
     respond_to do |format|
+      @cities = City.all
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+         
+         format.js { render :file => "/cities/cities_update.js.erb" } 
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit }

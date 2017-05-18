@@ -1,4 +1,5 @@
-  <%= form_for(city,:class=>"form-horizontal") do |f| %>
+  <div id="new_update">
+  <%= form_for(city,:class=>"form-horizontal",:remote=>true) do |f| %>
   <% if city.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(city.errors.count, "error") %> prohibited this city from being saved:</h2>
@@ -36,3 +37,4 @@
   </div>
 <% end %>
 
+</div>

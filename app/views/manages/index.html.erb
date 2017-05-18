@@ -48,12 +48,11 @@
            <% if user_permission_admin? %>
             <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
                <% elsif  user_check(manage, current_user) %>
-                <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
+              <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
                  <% elsif  user_permission_check(manage, current_user) %>
-                <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
-
+              <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
             <% end%>
-          
+          </td>
           <td><%= link_to 'Destroy',"/manages/#{manage.id}",
                 method: :delete,
                 data: { confirm: 'Are you sure?' }, :class=>"btn btn-success" %></td>

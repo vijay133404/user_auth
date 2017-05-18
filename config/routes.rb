@@ -13,8 +13,10 @@ Rails.application.routes.draw do
     collection do
       get :get_cities
     end
+     member do
+      get :cities_edit
+      end
   end
-
   resources :states do
     collection do
       get :get_states
@@ -23,7 +25,15 @@ Rails.application.routes.draw do
       get :states_edit
     end
    end
-  resources :countries
+  resources :countries do
+    member do
+      get :country_show
+    end
+    member do
+      get :country_edit
+    end
+  end
+
   resources :user_regions
   resources :user_roles
   resources :companies do 
