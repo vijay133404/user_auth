@@ -8,38 +8,40 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
           </head>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-
+        
+       <div class="opci">
         <body>
+        
         <nav class="navbar navbar-light" style="background-color: #81c784;">
          <div  class="container">
-          <div class="navbar-header">
-             
-          </div>
+          
           <ul class="nav navbar-nav navbar-left">
             <% if user_signed_in? %>
                 
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
               <% else %>
+
                  <li><a href="/users/sign_in">Login</a></li>
                  <li><a href="/manages/new">Sign Up</a></li>
               <% end%>
+
               <li><%= link_to 'admin','/admin' %></li>
               <li><%= link_to 'Company','/companies' %></li> 
-               <li><%= link_to 'ManageUser',' /manages'%></li> 
+               <li><%= link_to 'UserDetails',' /manages'%></li> 
+                <li><%=link_to "Add Place",new_place_path%></li>
+
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   All Show Page <b class="caret"></b>
                 </a>
 
-                 <ul class="dropdown-menu">
-        
+                 <ul class="dropdown-menu sub-menu">
                  <li><%= link_to 'Country','/countries' %></li> 
                   <li><%= link_to 'State','/states' %></li>
                   <li><%= link_to 'City','/cities' %></li>
                   <li><%= link_to 'UserRoles','/user_roles'%></li>
                   <li><%= link_to 'Places','/places'%></li>
                   <li><%= link_to 'user_regions','/user_regions'%></li> 
-                 
                   <li><%= link_to 'Regions','/regions'%></li> 
                   <li><%= link_to 'Nodes','/nodes'%></li> 
                 </ul>
@@ -51,14 +53,13 @@
                         All Show New page<b class="caret"></b>
                       </a>
                <% if user_signed_in?%>
-               <ul class="dropdown-menu">
+               <ul class="dropdown-menu sub-menu">
                    <li><%=link_to "New Company",new_company_path%></li>
                    <li><%=link_to "New Country",new_country_path%><li>
                    <li><%=link_to "New State",new_state_path%><li>
                    <li><%=link_to "New City",new_city_path%><li>
-                   <li><%=link_to "New Places",new_place_path%></li>
                    <li><%=link_to "New UserRoles",new_user_role_path%></li>
-                   <li><%=link_to "New Manage",new_manage_path%></li>
+                   <li><%=link_to "Add User",new_manage_path%></li>
                    <li><%=link_to "New Regions",new_region_path%></li>
                    <li><%= link_to "New Nodes",new_node_path%></li> 
                    <li><%= link_to "New UserRegions",new_user_region_path%></li> 
@@ -71,6 +72,8 @@
        <p class="alert"><%= alert %></p>
 
     <%= yield %>
+   
   </body>
+   </div>
 </html>
 
