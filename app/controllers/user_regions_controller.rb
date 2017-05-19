@@ -11,7 +11,12 @@ class UserRegionsController < ApplicationController
   # GET /user_regions/1.json
   def show
   end
-
+ def user_regions_show
+   @user_region = UserRegion.find(params[:id])
+   respond_to do |format|
+   format.js { render :file => "/user_regions/user_show.js.erb" }
+  end
+end
   # GET /user_regions/new
   def new
     @user_region = UserRegion.new

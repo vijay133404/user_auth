@@ -11,7 +11,15 @@ before_action :authenticate_user!,:except => [:new,:show,:create]
   # GET /cities/1
   # GET /cities/1.json
   def show
+
   end
+ def manange_show
+   @manage = User.find(params[:id])
+   respond_to do |format|
+   format.js { render :file => "/manages/manage_show.js.erb" }
+  end
+end
+
 
   # GET /cities/new
   def new

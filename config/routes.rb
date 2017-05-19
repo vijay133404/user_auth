@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     member do
       get :nodes_edit
     end
+     member do 
+      get :nodes_show
+    end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -11,7 +14,10 @@ Rails.application.routes.draw do
     member do
       get :place_edit
     end
+       member do
+     get :place_show
   end
+end
   resources :images
   resources :cities do
     collection do
@@ -20,6 +26,9 @@ Rails.application.routes.draw do
      member do
      get :cities_edit
     end
+    member do
+      get :cities_show
+    end
   end
   resources :states do
     collection do
@@ -27,6 +36,9 @@ Rails.application.routes.draw do
     end
       member do 
       get :states_edit
+    end
+    member do
+     get :states_show
     end
   end
   resources :countries do
@@ -42,27 +54,43 @@ Rails.application.routes.draw do
     member do
       get :regions_edit
     end
+     member do
+      get :user_regions_show
+    end
   end
 
   resources :user_roles do
     member do
       get :user_role_edit
     end
+    member do
+      get :user_role_show
+    end
   end 
 
   resources :companies do 
    member do
-   get :inline_edit
-  end
+     get :inline_edit
+    end
+     member do
+      get :company_show
+      end
  end
+  resources :manages do
+    member do
+      get :manange_show
+    end
+  end 
 
-  resources :manages
   devise_for :users
 
   resources :regions do
     member do
       get :region_edit
       end
+      member do
+      get :region_show
+    end
  end 
   
   root 'companies#index'

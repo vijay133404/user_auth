@@ -30,7 +30,10 @@
         <td><%= company.postcode %></td>
         <td><%= company.start_date %></td>
         <td><%= company.active %></td>
-        <td><%= link_to 'Show', company, :class=>"btn btn-success" %></td>
+       <td>
+          <%= link_to 'Show', company_show_company_path(company),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+           <td>
         <td><%= link_to 'Edit', inline_edit_company_path(company),  :class=>"btn btn-success",:remote => true %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-success" %></td>
       </tr>
@@ -39,4 +42,19 @@
 </table>
 
 </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">Company Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
 </div>

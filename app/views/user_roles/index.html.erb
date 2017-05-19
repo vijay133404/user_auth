@@ -1,5 +1,5 @@
 <div class="container">
-    <p id="notice"><%= notice %></p>
+
      <div class="update_users">
     <h1>User Roles List</h1>
 
@@ -14,13 +14,16 @@
       <tbody>
         <% @user_roles.each do |user_role| %>
           <tr>
-            <td>
-            <%= user_role.role_name %>
-              
-            </td>
-            <td><%= link_to 'Show', user_role,:class=>"btn btn-success" %></td>
-          <td><%= link_to 'Edit', user_role_edit_user_role_path(user_role),:class=>"btn btn-success",:remote=>true %></td>
-            <td><%= link_to 'Destroy', user_role,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <td>
+                <%= user_role.role_name %>
+                </td>
+               
+                 <td><%= link_to 'Show',user_role_show_user_role_path(user_role),{:remote => true,'data-toggle' =>"modal",'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+           
+                  <td><%= link_to 'Edit', user_role_edit_user_role_path(user_role),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal1', :class=>"btn btn-success" } %></td>
+
+                 <td><%= link_to 'Destroy', user_role,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -30,4 +33,58 @@
 
     <div>
 </div>
-<div id ="user-edit-partial"></div>
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+             <h4 class="modal-title">UserRole info </h4>
+        </div>
+           <div class="modal-body">
+           </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+     </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+             <h4 class="modal-title">UserRole update </h4>
+        </div>
+           <div class="modal1-body">
+           </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+     </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

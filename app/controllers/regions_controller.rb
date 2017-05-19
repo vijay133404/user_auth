@@ -6,6 +6,14 @@ def region_edit
     format.js { render :file => "/regions/region_edit.js.erb" } # create a file named inline_edit.js.erb
   end
 end
+def region_show
+  @region = Region.find(params[:id])
+  respond_to do |format|
+    format.js { render :file => "/regions/region_show.js.erb" } # create a file named inline_edit.js.erb
+  end
+end
+
+
 
 def update
 	@region = Region.find(params[:id])

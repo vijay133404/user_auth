@@ -10,6 +10,15 @@ class CitiesController < ApplicationController
   def show
   end
 
+ def cities_show
+        @city = City.find(params[:id])
+        respond_to do |format|
+         
+      format.js { render :file => "/cities/cities_show.js.erb" } 
+   end
+  end
+
+
   # GET /cities/new
   def new
     @city = City.new

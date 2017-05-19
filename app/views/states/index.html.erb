@@ -14,7 +14,10 @@
     <% @states.each do |state| %>
       <tr>
         <td><%= state.state_name %></td>
-        <td><%= link_to 'Show', state,:class=>"btn btn-success" %></td>
+        <td>
+          <%= link_to 'Show',  states_show_state_path(state),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+           <td>
         <td><%= link_to 'Edit',  states_edit_state_path(state),:class=>"btn btn-success",:remote=>true %></td>
         <td><%= link_to 'Destroy', state,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -22,7 +25,26 @@
   </tbody>
 </table>
 
+
 <br>
 </div>
 </div>
 <div id="state-edit-partial"></div> 
+
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">States Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>

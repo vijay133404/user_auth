@@ -7,6 +7,12 @@ def nodes_edit
   end
 end
 
+def nodes_show
+  @node = Node.find(params[:id])
+  respond_to do |format|
+    format.js { render :file => "/nodes/nodes_show.js.erb" } # create a file named inline_edit.js.erb
+  end
+end
 def update
 	@node = Node.find(params[:id])
        respond_to do |format|

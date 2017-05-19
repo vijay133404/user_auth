@@ -16,7 +16,10 @@
       <tr>
         <td><%= node.node_name %></td>
        
-        <td><%= link_to 'Show', node,:class=>"btn btn-success"%></td>
+         <td>
+          <%= link_to 'Show',nodes_show_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+           <td>
         <td><%= link_to 'Edit', nodes_edit_node_path(node),:class=>"btn btn-success",:remote=>true %></td>
         <td><%= link_to 'Destroy', node,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -28,3 +31,19 @@
 </div>
 </div>
 <div id="nodes-edit-partial"></div> 
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">Node Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>

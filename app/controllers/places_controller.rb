@@ -11,7 +11,14 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
   end
-
+ 
+ def place_show
+      @place = Place.find(params[:id])
+      respond_to do |format|
+       format.js { render :file => "/places/place_show.js.erb" }
+   
+      end
+    end
   # GET /places/new
   def new
     @place = Place.new

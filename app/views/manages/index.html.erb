@@ -43,7 +43,9 @@
           <td><%= raw manage.notes%></td>
           <td><%= manage.image_id%></td>
           <td><%= manage.active %></td>
-          <td><%= link_to 'Show', manage_path(manage), :class=>"btn btn-success" %></td>
+          <td>
+          <%= link_to 'Show', manange_show_manage_path(manage),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
            <td>
            <% if user_permission_admin? %>
             <td><%= link_to 'Edit', edit_manage_path(manage), :class=>"btn btn-success"%></td>
@@ -62,3 +64,19 @@
 </table>
 
 <br>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">User Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>

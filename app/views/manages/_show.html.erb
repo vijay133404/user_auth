@@ -1,0 +1,51 @@
+        <div class="modal-body">
+
+            <p>
+              <strong>First Name:</strong>
+              <%= @manage.first_name %>
+            </p>
+
+            <p>
+              <strong>lastname:</strong>
+              <%= @manage.last_name %>
+            </p>
+
+            <p>
+              <strong>Company:</strong>
+            <%= Company.find(@manage.company_id).name %>
+            </p>
+
+
+            <p>
+              <strong>Role:</strong>
+              <%= UserRole.find(@manage.role_id).role_name %>
+            </p>
+
+            <p>
+              <strong>Start date:</strong>
+              <%= @manage.start_date %>
+            </p>
+
+            <p>
+              <strong>End date:</strong>
+              <%= @manage.end_date %>
+            </p>
+
+            <p>
+              <strong>Month:</strong>
+              <%= @manage.monthly_charge %>
+            </p>
+            <p>
+              <strong>images:</strong>
+              <%= @manage.image_id %>
+            </p>
+            <p>
+              <strong>active:</strong>
+              <%= @manage.active %>
+            </p>
+         
+      
+       </div>
+     
+     
+

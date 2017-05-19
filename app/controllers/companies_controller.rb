@@ -14,6 +14,13 @@ class CompaniesController < ApplicationController
 
   end
 
+  def company_show
+    @company = Company.find(params[:id])
+   respond_to do |format|
+   format.js { render :file => "/companies/comapny_show.js.erb" }
+  end
+end
+
   # GET /companies/new
   def new
     @company = Company.new

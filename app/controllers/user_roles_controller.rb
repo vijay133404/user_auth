@@ -11,7 +11,13 @@ class UserRolesController < ApplicationController
   # GET /user_roles/1.json
   def show
   end
-
+  
+  def user_role_show
+     @user_role = UserRole.find(params[:id])
+      respond_to do |format|
+        format.js { render :file => "/user_roles/user_show.js.erb" } 
+        end
+   end
   # GET /user_roles/new
   def new
     @user_role = UserRole.new
@@ -45,8 +51,7 @@ class UserRolesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_roles/1
-  # PATCH/PUT /user_roles/1.json
+  
   def update
      @user_role = UserRole.find(params[:id])
       respond_to do |format|
@@ -61,8 +66,7 @@ class UserRolesController < ApplicationController
     end
   end
 
-  # DELETE /user_roles/1
-  # DELETE /user_roles/1.json
+  
   def destroy
     @user_role.destroy
     respond_to do |format|
