@@ -1,10 +1,8 @@
-
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
 <div class="place-update">
 
-
   <h1>Places list</h1>
-  
+  <div class="table-responsive">
   <table class = "table table-hover">
   <thead>
     <tr>
@@ -18,27 +16,45 @@
       <% @places.each do |place| %>
         <tr>
           <td><%= place.place_name %></td>
-          <td><%= place.company_id %></td>
+         <td><%= Company.find(place.company_id).name %></td>
           
          <td>
           <%= link_to 'Show',  place_show_place_path(place),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
         
-           <td>
-          <td><%= link_to 'Edit',  place_edit_place_path(place),:class=>"btn btn-success",:remote=>true %></td>
+          
+          <td><%= link_to 'Edit',  place_edit_place_path(place),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#edit-place',:class=>"btn btn-success"} %></td>
+
           <td><%= link_to 'Destroy', place,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
    </table>
+   </div>
     <br>
 </div>
-
+</div>
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
      <div class="modal-content">
       <div class="modal-header">
        <h4 class="modal-title">place Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit-place" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">place update Info</h4>
       </div>
       <div class="modal-body">
 

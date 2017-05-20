@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   end
  
  def place_show
+   @places = Place.all
       @place = Place.find(params[:id])
       respond_to do |format|
        format.js { render :file => "/places/place_show.js.erb" }
@@ -59,7 +60,7 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1.json
   def update
      @place = Place.find(params[:id])
-    respond_to do |format|
+     respond_to do |format|
       if @place.update(place_params)
          @places = Place.all
          format.js { render :file => "/places/place_update.js.erb" }

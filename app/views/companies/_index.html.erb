@@ -1,9 +1,8 @@
-<div class="container">
-<p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
 <div class="update_company">
 <h1>Companies List</h1>
-<table class="table">
+<div class="table-responsive">
+<table class = "table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -27,12 +26,17 @@
         <td><%= company.postcode %></td>
         <td><%= company.start_date %></td>
         <td><%= company.active %></td>
-        <td><%= link_to 'Show', company, :class=>"btn btn-success" %></td>
-        <td><%= link_to 'Edit', inline_edit_company_path(company),  :class=>"btn btn-success",:remote => true %></td>
+        <td>
+          <%= link_to 'Show', company_show_company_path(company),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+         
+        <td><%= link_to 'Edit', inline_edit_company_path(company),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#editmodel',:class=>"btn btn-success"} %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+
 </div>
+

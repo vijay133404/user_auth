@@ -1,11 +1,10 @@
 
 <div class="container">
 <p id="notice"><%= notice %></p>
-<div id="company-edit-partial"></div> 
 <div class="update_company">
 <h1>Companies List</h1>
 
-
+<div class="table-responsive">
 <table class="table table-hover">
   <thead>
     <tr>
@@ -32,15 +31,14 @@
         <td><%= company.active %></td>
        <td>
           <%= link_to 'Show', company_show_company_path(company),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
-        
-           <td>
-        <td><%= link_to 'Edit', inline_edit_company_path(company),  :class=>"btn btn-success",:remote => true %></td>
+          
+        <td><%= link_to 'Edit', inline_edit_company_path(company),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#editmodel',:class=>"btn btn-success"} %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 </div>
 </div>
 <div class="modal fade" id="myModal" role="dialog">
@@ -48,6 +46,21 @@
      <div class="modal-content">
       <div class="modal-header">
        <h4 class="modal-title">Company Info</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>
+<div class="modal fade" id="editmodel" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content",>
+      <div class="modal-header">
+       <h4 class="modal-title">Company edit Info</h4>
       </div>
       <div class="modal-body">
 

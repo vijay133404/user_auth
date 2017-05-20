@@ -8,13 +8,12 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
           </head>
         <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
          
         <body>
         <nav class="navbar navbar-light" style="background-color: #81c784;">
          <div  class="container">
-         
+        
           <ul class="nav navbar-nav navbar-left">
             <% if user_signed_in? %>
                 
@@ -48,7 +47,7 @@
 
                 </ul>
                     
-             </ul>
+             </ul></li>
              <ul class="nav navbar-nav navbar-right">
                       <li id="fat-menu" class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -68,8 +67,9 @@
                    <%end%>
                </ul>
             </ul>
+            </li>
     </div>
-            
+         
  </nav>
        <p class="alert"><%= alert %></p>
 
@@ -92,6 +92,22 @@ background-color: #e6f7ff;
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+/*.modal-body {
+    position: relative;
+    overflow-y: auto;
+    width:auto ;
+  height: auto ;
+  max-height': 100% 
+}*/
+.modal-dialog {
+  display: table
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: #71a34f;
+    color: #262626;
+    text-decoration: none;
 }
 
+}
 </style>

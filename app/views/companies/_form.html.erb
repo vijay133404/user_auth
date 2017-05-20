@@ -1,4 +1,4 @@
-<div id="new_update">
+
 <%= form_for(company ,:class=>"form-horizontal",:remote=>true)  do |f| %>
 
 <div class="container">
@@ -65,7 +65,7 @@
 
         <div class="form-group">
           <%= f.label :active %>
-          <%= f.check_box :active %>
+          <%= f.check_box :active%>
         </div>
       
 
@@ -74,7 +74,7 @@
       </div>
   <% end %>
  </div>
-</div>
+
 <script>
 $(document).ready(function() {
 $('#company_country_id').change(function(){
@@ -89,12 +89,23 @@ $('#company_country_id').change(function(){
 });
 </script>
 
-
-<script type="text/javascript">
+ <script type="text/javascript">
             $(function () {
                $('#datetimepicker1').datetimepicker({
+                
                 format: 'DD-MM-YYYY'
              });
                }); 
-            </script>
+            </script> 
 
+<!-- <script type="text/javascript">
+$(document).ready(function(){
+  $('#my-dialog').modal('show');
+  $('.#datetimepicker1').datetimepicker({
+    dateFormat: "mm-dd-yy",
+    yearRange: "-10:+10",
+    changeMonth: true,
+    changeYear: true
+  });  
+});
+</script> -->

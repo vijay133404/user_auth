@@ -1,13 +1,13 @@
-  <div class="container">
-  <p id="notice"><%= notice %></p>
- <div class="country-update-partial">
-  <h1>Countries List</h1>
-
-<table class = "table table-hover"> 
- <thead>
+  <div class="container-fluid">
+    <p id="notice"><%= notice %></p>
+    <div class="country-update-partial">
+    <h1>Countries List</h1>
+   <div class="table-responsive">
+  <table class = "table table-hover"> 
+   <thead>
     <tr>
       <th>Country name</th>
-      <th colspan="3"></th>
+      <th colspan="10"></th>
     </tr>
   </thead>
 
@@ -15,16 +15,21 @@
     <% @countries.each do |country| %>
       <tr>
         <td><%= country.country_name %></td>
-        <td><%= link_to 'Show', country_show_country_path(country) ,:class=>"btn btn-success",:remote=>true%></td>
-        <td><%= link_to 'Edit', country_edit_country_path(country),:class=>"btn btn-success",:remote=>true %></td>
+        <td>
+          <%= link_to 'Show',country_show_country_path(country),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+        
+         
+        <td><%= link_to 'Edit', country_edit_country_path(country),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#edit-country',:class=>"btn btn-success"} %></td>
+        
         <td><%= link_to 'Destroy', country,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
  </table>
-
+</div>
  <br>
 </div>
 </div>
- <div id="country-edit-partial"></div>
  
+
+  
