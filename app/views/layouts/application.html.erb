@@ -11,12 +11,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
          
-       <div class="opci">
         <body>
-        
         <nav class="navbar navbar-light" style="background-color: #81c784;">
          <div  class="container">
-          
+         
           <ul class="nav navbar-nav navbar-left">
             <% if user_signed_in? %>
                 
@@ -37,7 +35,7 @@
                   All Show Page <b class="caret"></b>
                 </a>
 
-                 <ul class="dropdown-menu sub-menu">
+                 <ul class="dropdown-menu">
                  <li><%= link_to 'Country','/countries' %></li> 
                   <li><%= link_to 'State','/states' %></li>
                   <li><%= link_to 'City','/cities' %></li>
@@ -57,7 +55,7 @@
                         All Show New page<b class="caret"></b>
                       </a>
                <% if user_signed_in?%>
-               <ul class="dropdown-menu sub-menu">
+               <ul class="dropdown-menu">
                    <li><%=link_to "New Company",new_company_path%></li>
                    <li><%=link_to "New Country",new_country_path%><li>
                    <li><%=link_to "New State",new_state_path%><li>
@@ -68,9 +66,9 @@
                    <li><%= link_to "New Nodes",new_node_path%></li> 
                    <li><%= link_to "New UserRegions",new_user_region_path%></li> 
                    <%end%>
-                   </ul>
-                   </ul>
-                  </div>
+               </ul>
+            </ul>
+    </div>
             
  </nav>
        <p class="alert"><%= alert %></p>
@@ -78,6 +76,22 @@
     <%= yield %>
    
   </body>
-   </div>
+   
 </html>
 
+
+<style type="text/css">
+
+  body{
+background-color: #e6f7ff; 
+}
+.dropdown-menu li:hover {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+}
+
+</style>
