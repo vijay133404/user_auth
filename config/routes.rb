@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :places do
+    collection do
+      get :user_login
+    end
     member do
       get :place_edit
     end
@@ -80,10 +83,10 @@ end
     member do
       get :manange_show
     end
+    
   end 
 
-  devise_for :users
-
+  devise_for :users 
   resources :regions do
     member do
       get :region_edit

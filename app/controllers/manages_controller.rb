@@ -1,5 +1,5 @@
 class ManagesController < ApplicationController
-before_action :authenticate_user!,:except => [:new,:show,:create]
+   before_action :authenticate_user!,:except => [:new,:show,:create]
 	 before_action :manage_user, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
@@ -19,7 +19,6 @@ before_action :authenticate_user!,:except => [:new,:show,:create]
    format.js { render :file => "/manages/manage_show.js.erb" }
   end
 end
-
 
   # GET /cities/new
   def new

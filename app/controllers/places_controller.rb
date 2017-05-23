@@ -11,6 +11,14 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
   end
+ def user_login
+        
+        respond_to do |format|
+         
+        format.js { render :file => "/devise/user_login.js.erb" } 
+   end
+  end
+
  
  def place_show
    @places = Place.all

@@ -34,10 +34,10 @@
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li> 
               <% else %> 
 
-                 <li><a href="/users/sign_in">Login</a></li> 
+                 <li><%= link_to "Login",user_login_places_path, {:remote => true,'data-toggle' =>"modal", 'data-target'=>'#login1'}%></li> 
                  <li><a href="/manages/new">Sign Up</a></li> 
               <% end%> 
-
+               
               <li><%= link_to 'admin','/admin' %></li> 
               <li><%= link_to 'Company','/companies' %></li> 
              <li><%=link_to "Add Place",new_place_path%></li> 
@@ -91,7 +91,31 @@
   </body> 
    
 </html> 
- 
+ <div class="modal fade" id="login1" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-header">
+       <h4 class="modal-title">login </h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+     </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <style type="text/css"> 
 
