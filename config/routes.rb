@@ -7,6 +7,10 @@ Rails.application.routes.draw do
      member do 
       get :nodes_show
     end
+     member do
+      put "like", to: "links#upvote"
+      put "dislike", to: "links#downvote"
+    end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
        member do
      get :place_show
   end
+
 end
   resources :images
   resources :cities do
@@ -96,5 +101,13 @@ end
     end
  end 
   
-  root 'companies#index'
+    root 'companies#index'
+      resources :links do 
+      member do
+      put "like", to: "links#upvote"
+      put "dislike", to: "links#downvote"
+    end
+  end
+
+
 end

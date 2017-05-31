@@ -7,7 +7,8 @@
 <table class = "table table-hover">  <thead>
     <tr>
       <th>Node name</th>
-      
+      <th>like</th>
+      <th>dislike</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +17,18 @@
     <% @nodes.each do |node| %>
       <tr>
         <td><%= node.node_name %></td>
-       
+       <td><%= link_to like_node_path(node), method: :put do %>
+         Upvote
+        <%= node.get_upvotes.size %> <% end %></td>
+          
+        <td><%= link_to dislike_node_path(node), method: :put do %>
+         Downvote
+         <%= node.get_downvotes.size %><% end %></td>
+
          <td>
           <%= link_to 'Show',nodes_show_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
         
-         
+      
         <td><%= link_to 'Edit', nodes_edit_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#edit-nodes',:class=>"btn btn-success"} %></td>
         <td><%= link_to 'Destroy', node,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
