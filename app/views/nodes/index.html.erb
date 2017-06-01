@@ -13,25 +13,30 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @nodes.each do |node| %>
-      <tr>
-        <td><%= node.node_name %></td>
-       <td><%= link_to like_node_path(node), method: :put do %>
-         Upvote
-        <%= node.get_upvotes.size %> <% end %></td>
+      <tbody>
+        <% @nodes.each do |node| %>
+          <tr>
+            <td><%= node.node_name %></td>
+          <div class="col-md-6">
+          <div class="btn-group pull-right">
+         <td><%= link_to like_node_path(node), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %>
+          <span class="glyphicon glyphicon-thumbs-up">
+             <%= node.get_upvotes.size %> <% end %></td>
+          </span>
+       
+          <td><%= link_to dislike_node_path(node), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %>
+          <span class="glyphicon glyphicon-thumbs-down">
+           <%= node.get_downvotes.size %><% end %></td>
+          </span>
+      </div>
+    </div>
+             <td>
+              <%= link_to 'Show',nodes_show_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
+            
           
-        <td><%= link_to dislike_node_path(node), method: :put do %>
-         Downvote
-         <%= node.get_downvotes.size %><% end %></td>
-
-         <td>
-          <%= link_to 'Show',nodes_show_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#myModal',:class=>"btn btn-success"} %></td>
-        
-      
-        <td><%= link_to 'Edit', nodes_edit_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#edit-nodes',:class=>"btn btn-success"} %></td>
-        <td><%= link_to 'Destroy', node,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+            <td><%= link_to 'Edit', nodes_edit_node_path(node),{:remote => true,'data-toggle' =>"modal", 'data-target'=>'#edit-nodes',:class=>"btn btn-success"} %></td>
+            <td><%= link_to 'Destroy', node,:class=>"btn btn-success", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
     <% end %>
   </tbody>
 </table>
@@ -39,7 +44,6 @@
 <br>
 </div>
 </div>
-
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
