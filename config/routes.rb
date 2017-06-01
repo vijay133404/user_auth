@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       get :nodes_show
     end
      member do
-      put "like", to: "links#upvote"
-      put "dislike", to: "links#downvote"
+      put "like", to: "nodes#upvote"
+      put "dislike", to: "nodes#downvote"
     end
   end
   devise_for :admin_users, ActiveAdmin::Devise.config

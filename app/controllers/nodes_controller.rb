@@ -30,13 +30,13 @@ def update
     def upvote 
       @node = Node.find(params[:id])
      @node.upvote_by current_user
-     redirect_to @node
+     redirect_to nodes_path
     end  
 
     def downvote
      @node = Node.find(params[:id])
       @node.downvote_by current_user
-       redirect_to @node
+       redirect_to nodes_path
     end  
     
 
