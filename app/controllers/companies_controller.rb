@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
 
   def company_show
     @company = Company.find(params[:id])
-   respond_to do |format|
+    respond_to do |format|
    format.js { render :file => "/companies/comapny_show.js.erb" }
   end
 end
@@ -43,14 +43,26 @@ def inline_edit
   end
 end
 
+ def upvote 
+    @company = Company.find(params[:id])
+    @company.upvote_by current_user
+     respond_to do |format|
+    format.js { render :file => 'companies/company.js.erb'}
+     end
+    end  
 
+    def downvote
+    @company = Company.find(params[:id])
+    @company.downvote_by current_user
+      respond_to do |format|
+       format.html { redirect_to :back }
+       format.js { render :file => 'companies/company.js.erb'}
+       end  
+    end
 
-
-
-
-
-
-
+  def comments
+     @company = Company.find(params[:id])
+   end
 
   # POST /companies
   # POST /companies.json

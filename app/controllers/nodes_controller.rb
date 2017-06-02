@@ -8,8 +8,10 @@ def nodes_edit
 end
 
 def nodes_show
-  @node = Node.find(params[:id])
-  respond_to do |format|
+
+   @node = Node.find(params[:id])
+   
+    respond_to do |format|
     format.js { render :file => "/nodes/nodes_show.js.erb" } # create a file named inline_edit.js.erb
   end
 end
@@ -30,20 +32,24 @@ def update
     def upvote 
       @node = Node.find(params[:id])
      @node.upvote_by current_user
-     redirect_to nodes_path
+     respond_to do |format|
+    format.js { render :file => 'nodes/nodes.js.erb'}
      end
-    
+    end  
 
     def downvote
      @node = Node.find(params[:id])
       @node.downvote_by current_user
-      redirect_to nodes_path
+      respond_to do |format|
+       format.html { redirect_to :back }
+       format.js { render :file => 'nodes/nodes.js.erb'}
     end  
+    end
    
-
-
-
   private
+  def comment_params
+    params.require(:comment).permit(:comment,:title)
+  end
 
     def node_params
       params.require(:node).permit(:node_name, :place_id)

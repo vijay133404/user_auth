@@ -1,4 +1,4 @@
 $(function() { 
-  $('glyphicon glyphicon-thumbs-up').text("<%= @node.get_upvotes.size %>");
-  $('glyphicon glyphicon-thumbs-down').text("<%= @node.get_downvotes.size %>");
+  $('.node-up-<%=@node.id%>').text("<%= @node.get_upvotes.size %>");
+  $('.node-down-<%=@node.id%>').text("<%= @node.get_downvotes.size %>");
 });

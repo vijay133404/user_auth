@@ -64,3 +64,4 @@ gem 'ckeditor'
 gem 'carrierwave', '~> 1.0'
 gem 'rails_12factor', group: :production
 gem 'acts_as_votable'
+gem 'acts_as_commentable'

@@ -11,7 +11,17 @@ Rails.application.routes.draw do
       put "like", to: "nodes#upvote"
       put "dislike", to: "nodes#downvote"
     end
+     resources :comments 
+       
   end
+
+    resources :comments, only: [] do
+      member do
+        put "like", to: "comments#upvote"
+        put "dislike", to: "comments#downvote"
+      end
+    end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :places do
@@ -58,6 +68,7 @@ end
     end
   end
 
+  
   resources :user_regions do
     member do
       get :regions_edit
@@ -79,11 +90,21 @@ end
   resources :companies do 
    member do
      get :inline_edit
-    end
-     member do
+     end
+    member do
       get :company_show
       end
  end
+
+
+   resources :companies, only: [] do
+      member do
+        put "like", to: "companies#upvote"
+        put "dislike", to: "companies#downvote"
+      end
+    end
+
+
   resources :manages do
     member do
       get :manange_show

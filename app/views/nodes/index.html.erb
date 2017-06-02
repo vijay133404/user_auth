@@ -18,14 +18,14 @@
           <tr>
             <td><%= node.node_name %></td>
           <div class="col-md-6">
-          <div class="btn-group pull-right">
+          <div class="btn-group pull-right" style="">
          <td><%= link_to like_node_path(node), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %>
-          <span class="glyphicon glyphicon-thumbs-up">
+          <span class="glyphicon glyphicon-thumbs-up node-up-<%=node.id%>" style='width: 50px' >
              <%= node.get_upvotes.size %> <% end %></td>
           </span>
        
           <td><%= link_to dislike_node_path(node), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %>
-          <span class="glyphicon glyphicon-thumbs-down">
+          <span class="glyphicon glyphicon-thumbs-down node-down-<%=node.id%>" style='width: 50px'>
            <%= node.get_downvotes.size %><% end %></td>
           </span>
       </div>
@@ -44,6 +44,9 @@
 <br>
 </div>
 </div>
+
+
+
 
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

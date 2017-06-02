@@ -7,9 +7,12 @@
   <%= @node.node_name %>
 </p>
 
-
+<h2>Comments</h2>
+      <div class="comments-container">
+        <%= render 'comments/comments', node: @node%>
+        </div>
+       <h2>Add a comment:</h2>
+      
+        <%= render 'comments/comment_form' ,node: @node%>
      
-
-
-
  </div>
