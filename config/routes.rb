@@ -93,9 +93,9 @@ end
      end
     member do
       get :company_show
-      end
+      post :comments
+    end
  end
-
 
    resources :companies, only: [] do
       member do
