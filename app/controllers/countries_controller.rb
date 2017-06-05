@@ -10,6 +10,8 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+    @commentable= Country.find(params[:id])
+    @comment=Comment.new
   
   end
 
@@ -88,13 +90,21 @@ class CountriesController < ApplicationController
     end
   end
 
+   def comments
+    @commentable= Country.find(params[:id])
+    @comment= @commentable.comments.create(comment_params)
+    @comment.save
+    redirect_to country_path
+end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_country
       @country = Country.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+   def comment_params
+      params.require(:comment).permit(:title,:comment)
+    end
+    
     def country_params
       params.require(:country).permit(:country_name,:code)
     end

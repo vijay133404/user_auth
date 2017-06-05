@@ -8,6 +8,9 @@ class CitiesController < ApplicationController
 
  
   def show
+    @commentable= City.find(params[:id])
+    @comment = Comment.new
+
   end
 
  def cities_show
@@ -75,6 +78,15 @@ class CitiesController < ApplicationController
     end
   end
 
+def comments
+       
+      @commentable = City.find(params[:id])
+      @comment = @commentable.comments.create(comment_params)
+      # @comment.title = "First comment."
+      # @comment.comment = "This is the first comment."
+      @comment.save
+       redirect_to city_path
+   end
 
   def destroy
     @city.destroy
@@ -87,7 +99,12 @@ class CitiesController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def comment_params
+      params.require(:comment).permit(:title, :comment,:commentable)
+    end
+
+
     def set_city
       @city = City.find(params[:id])
     end

@@ -13,6 +13,11 @@ def region_show
   end
 end
 
+ def show
+   @region = Region.find(params[:id])
+  @commentable= Region.find(params[:id])
+  @comment=Comment.new
+ end
 
 
 def update
@@ -29,14 +34,17 @@ def update
       end
     end
   end
-
-
-
-
-
-
+ 
+   def comments123 
+    @commentable= Region.find(params[:id])
+    @comment= @commentable.comments.create(comment_params)
+    @comment.save
+    redirect_to region_path
+  end
   private
-
+    def comment_params
+      params.require(:comment).permit(:title,:comment)
+    end
     def region_params
       params.require(:region).permit(:region_name,:resion_id)
     end

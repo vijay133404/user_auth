@@ -10,6 +10,9 @@ class UserRegionsController < ApplicationController
   # GET /user_regions/1
   # GET /user_regions/1.json
   def show
+    @commentable = UserRegion.find(params[:id])
+    @comment = Comment.new
+
   end
  def user_regions_show
    @user_region = UserRegion.find(params[:id])
@@ -71,9 +74,17 @@ end
       format.json { head :no_content }
     end
   end
-
+def comments
+    @commentable= UserRegion.find(params[:id])
+    @comment= @commentable.comments.create(comment_params)
+    @comment.save
+   redirect_to user_region_path
+   end
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
+    def comment_params
+    params.require(:comment).permit(:title,:comment)
+   end
     def set_user_region
       @user_region = UserRegion.find(params[:id])
     end

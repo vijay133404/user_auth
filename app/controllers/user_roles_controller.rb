@@ -10,7 +10,10 @@ class UserRolesController < ApplicationController
   # GET /user_roles/1
   # GET /user_roles/1.json
   def show
-  end
+   
+    @commentable= Region.find(params[:id])
+    @comment=Comment.new
+ end
   
   def user_role_show
      @user_role = UserRole.find(params[:id])
@@ -50,7 +53,15 @@ class UserRolesController < ApplicationController
       end
     end
   end
-
+ def comments
+     
+      @commentable = UserRole.find(params[:id])
+      @comment = @commentable.comments.create(comment_params)
+      # @comment.title = "First comment."
+      # @comment.comment = "This is the first comment."
+      @comment.save
+       redirect_to user_role_path
+   end
   
   def update
      @user_role = UserRole.find(params[:id])
@@ -76,7 +87,11 @@ class UserRolesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def comment_params
+    params.require(:comment).permit(:title,:comment)
+   end
+
     def set_user_role
       @user_role = UserRole.find(params[:id])
     end

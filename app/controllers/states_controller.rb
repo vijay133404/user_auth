@@ -10,6 +10,8 @@ class StatesController < ApplicationController
   # GET /states/1
   # GET /states/1.json
   def show
+    @commentable = State.find(params[:id])
+    @comment = Comment.new
   end
 
   def states_show
@@ -65,8 +67,18 @@ end
     end
   end
 
-  # DELETE /states/1
-  # DELETE /states/1.json
+ 
+
+def comments
+    
+      @commentable = State.find(params[:id])
+      @comment = @commentable.comments.create(comment_params)
+      # @comment.title = "First comment."
+      # @comment.comment = "This is the first comment."
+      @comment.save
+       redirect_to state_path
+   end
+
   def destroy
     @state.destroy
     respond_to do |format|
@@ -85,6 +97,11 @@ end
       @state = State.find(params[:id])
     end
 
+
+  def comment_params
+
+  params.require(:comment).permit(:title,:comment)
+   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def state_params
       params.require(:state).permit(:state_name,:country_id)

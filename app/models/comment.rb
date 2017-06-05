@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
   belongs_to :user
   belongs_to :node
-   acts_as_votable
+  acts_as_votable
   belongs_to :commentable, :polymorphic => true
 
   default_scope -> { order('created_at ASC') }

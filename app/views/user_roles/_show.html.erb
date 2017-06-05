@@ -6,5 +6,28 @@
   <strong>Role name:</strong>
   <%= @user_role.role_name %>
 </p>
-
+<% @user_role.comments.each do |comment| %>
+  <p>
+    <strong>title:</strong>
+    <%= comment.title %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.comment %>
+  </p>
+  <div class="btn-group pull-right">
+         <td><%= link_to like_comment_path(comment), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %></td>
+        
+          <span class="glyphicon glyphicon-thumbs-up comment-up-<%=comment.id%>" style='width: 50px'>
+             <%= comment.get_upvotes.size %> <% end %>
+          </span>
+       
+          <td><%= link_to dislike_comment_path(comment), method: :put ,data: { :remote=> true } , :class=> "btn btn-default" do %></td>
+          
+          <span class="glyphicon glyphicon-thumbs-down comment-down-<%=comment.id%>" style='width: 50px'>
+           <%= comment.get_downvotes.size %><% end %>
+          </span>
+      </div>
+<%end%>
 </div>
