@@ -98,15 +98,6 @@ ActiveRecord::Schema.define(version: 20170603135012) do
     t.string   "imageable_type"
   end
 
-  create_table "likeable1s", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "likeable_id"
-    t.string   "likeable_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "links", force: :cascade do |t|
     t.text     "title"
     t.integer  "user_id"

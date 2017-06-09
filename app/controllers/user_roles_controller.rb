@@ -11,7 +11,7 @@ class UserRolesController < ApplicationController
   # GET /user_roles/1.json
   def show
    
-    @commentable= Region.find(params[:id])
+    @commentable= UserRole.find(params[:id])
     @comment=Comment.new
  end
   
