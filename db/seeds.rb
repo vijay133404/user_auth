@@ -16,6 +16,6 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 # noge=Node.create!(node_name:'delhi',place_id: place.id)
 # region=Region.create!(region_name:'East')
 # user_region=UserRegion.create!(user_id:user.id,region_id:user_region.id)
-# user=User.create!(First_Name: 'vijay',Last_name:'maurya',Email:'vmaurya1989@gmail.com',Company_id:company.id,Role_id:role.id,Monthly_Charge:"20000",Notes:'adadad',Active:'true'     )
+# user=User.create!(First_Name: 'vijay',Last_name:'maurya',Email:'',Company_id:company.id,Role_id:role.id,Monthly_Charge:"20000",Notes:'adadad',Active:'true'     )
 # company=Company.create!(name: 'bittern',country_id:country.id '',state_id: state.id,city_id: city.id,postcode:'473751',active:'true')
 
